@@ -21,7 +21,7 @@
             position: relative;
         }
 
-        /* Магический фон: луна, звёзды, планеты */
+        /* Элегантный фон — контуры луны, планет, звёзд цветом дымчатой сирени */
         body::before {
             content: '';
             position: fixed;
@@ -32,42 +32,51 @@
             pointer-events: none;
             z-index: 0;
             background-image: 
-                /* Звёзды-звёздочки */
-                radial-gradient(circle at 20% 30%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 70% 15%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 85% 70%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 10% 85%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 45% 50%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 60% 90%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 93% 45%, #D4C9BE 1px, transparent 1px),
-                radial-gradient(circle at 5% 55%, #D4C9BE 1px, transparent 1px),
-                /* Маленькие планеты (круги побольше) */
-                radial-gradient(circle at 80% 40%, #E6D8CC 2px, transparent 2px),
-                radial-gradient(circle at 15% 20%, #E6D8CC 1.5px, transparent 1.5px),
-                radial-gradient(circle at 40% 80%, #E6D8CC 2.5px, transparent 2.5px),
-                /* Тонкий месяц (серп) - делаем через тень или отдельный элемент */
-                radial-gradient(circle at 90% 10%, #E6D8CC 3px, transparent 3px);
-            background-size: 200px 200px, 180px 180px, 220px 220px, 250px 250px, 150px 150px, 200px 200px, 170px 170px, 190px 190px, 300px 300px, 250px 250px, 280px 280px, 180px 180px;
+                /* Луна (полный круг) */
+                radial-gradient(circle at 15% 25%, transparent 18px, #A28F9D 18px, #A28F9D 20px, transparent 20px),
+                /* Луна (серп) — месяц */
+                radial-gradient(circle at 85% 70%, transparent 22px, #A28F9D 22px, #A28F9D 24px, transparent 24px),
+                /* Звезда 1 (четыре точки в форме звезды) */
+                radial-gradient(circle at 30% 60%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 30% 60%, #A28F9D 1px, transparent 1px),
+                /* Планета с кольцом (как Сатурн) — круг и овал */
+                radial-gradient(circle at 70% 20%, transparent 10px, #A28F9D 10px, #A28F9D 11px, transparent 11px),
+                /* Маленькие звёзды-точки */
+                radial-gradient(circle at 45% 85%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 8% 50%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 92% 40%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 55% 15%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 60% 95%, #A28F9D 1px, transparent 1px),
+                radial-gradient(circle at 20% 80%, #A28F9D 1px, transparent 1px),
+                /* Ещё одна планета (поменьше) */
+                radial-gradient(circle at 40% 35%, transparent 6px, #A28F9D 6px, #A28F9D 7px, transparent 7px);
             background-repeat: no-repeat;
+            background-size: 
+                50px 50px,
+                60px 60px,
+                20px 20px,
+                40px 40px,
+                30px 30px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                25px 25px;
             background-position: 
-                20% 30%, 70% 15%, 85% 70%, 10% 85%, 45% 50%, 60% 90%, 93% 45%, 5% 55%,
-                80% 40%, 15% 20%, 40% 80%,
-                90% 10%;
-            opacity: 0.4;
-        }
-
-        /* Дополнительный тонкий узор для текстуры */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: repeating-linear-gradient(45deg, #F5EDE2 0px, #F5EDE2 1px, transparent 1px, transparent 20px);
-            opacity: 0.3;
-            z-index: 0;
+                15% 25%,
+                85% 70%,
+                30% 60%,
+                70% 20%,
+                45% 85%,
+                8% 50%,
+                92% 40%,
+                55% 15%,
+                60% 95%,
+                20% 80%,
+                40% 35%;
+            opacity: 0.25;
         }
 
         .container {
@@ -321,7 +330,7 @@
         <div class="section-title">Другие оракулы</div>
         <div class="oracle-links">
             <a href="#" class="oracle-item">
-                <span class="oracle-emoji">✦</span> Карта дня Таро
+                <span class="oracle-emoji">✦</span> Карта дня
             </a>
             <a href="#" class="oracle-item">
                 <span class="oracle-emoji">💎</span> Что мешает финансам
