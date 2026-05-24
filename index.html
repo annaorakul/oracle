@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Анна — Послание Вселенной</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FDF8F0;
+            font-family: 'Inter', sans-serif;
+            color: #2C2A2B;
+            line-height: 1.5;
+            padding: 0 16px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 0 64px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .oracle-title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            text-align: left;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            font-weight: 400;
+            color: #4A4545;
+            margin-bottom: 32px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .primary-btn {
+            background-color: #6B8F7A;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            border-radius: 48px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .primary-btn:hover {
+            background-color: #5D7D6B;
+        }
+
+        .message-block {
+            background-color: #FFFFFFCC;
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-bottom: 48px;
+            text-align: center;
+            border: 1px solid #F0E4D4;
+        }
+
+        .universe-says {
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #A1825A;
+            margin-bottom: 12px;
+        }
+
+        .message-text {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #2C2A2B;
+        }
+
+        .consult-block {
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .consult-text {
+            font-size: 16px;
+            font-weight: 400;
+            color: #2C2A2B;
+            margin-bottom: 16px;
+        }
+
+        .secondary-btn-lilac {
+            background-color: transparent;
+            border: 1.5px solid #A28F9D;
+            color: #A28F9D;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            border-radius: 48px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn-lilac:hover {
+            background-color: #A28F9D10;
+            border-color: #8E7A89;
+            color: #8E7A89;
+        }
+
+        .secondary-btn-sage {
+            background-color: transparent;
+            border: 1.5px solid #6B8F7A;
+            color: #6B8F7A;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            border-radius: 48px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn-sage:hover {
+            background-color: #6B8F7A10;
+            border-color: #5D7D6B;
+            color: #5D7D6B;
+        }
+
+        .other-oracles {
+            margin: 48px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .oracle-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .oracle-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #2C2A2B;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px solid #F0E4D4;
+            transition: color 0.2s ease;
+        }
+
+        .oracle-item:hover {
+            color: #6B8F7A;
+        }
+
+        .oracle-emoji {
+            font-size: 22px;
+            width: 28px;
+            text-align: center;
+        }
+
+        .diagnostic-block {
+            margin: 48px 0 0;
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #F0E4D4;
+        }
+
+        .diagnostic-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 20px;
+            }
+            .container {
+                padding: 32px 0 48px;
+            }
+            .name {
+                font-size: 28px;
+                margin-bottom: 36px;
+            }
+            .oracle-title {
+                font-size: 22px;
+            }
+            .intro-text {
+                font-size: 16px;
+            }
+            .primary-btn {
+                font-size: 17px;
+                padding: 14px 20px;
+            }
+            .message-text {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .message-text {
+                font-size: 17px;
+            }
+            .oracle-item {
+                font-size: 15px;
+            }
+        }
+
+        .primary-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="name">Анна</div>
+
+    <div class="oracle-title">Послание Вселенной</div>
+    <div class="intro-text">Что вам важно сейчас услышать? Доверьтесь тому, что придёт.</div>
+
+    <button class="primary-btn" id="getMessageBtn">Получить послание</button>
+
+    <div id="messageOutput" class="message-block hidden">
+        <div class="universe-says">Вселенная говорит тебе</div>
+        <div class="message-text" id="messageText"></div>
+    </div>
+
+    <div class="consult-block">
+        <div class="consult-text">Хотите разобрать свою ситуацию? Сделаем это на личной консультации.</div>
+        <a href="https://t.me/Anna_prognoz" class="secondary-btn-lilac" target="_blank">Написать Анне</a>
+    </div>
+
+    <div class="other-oracles">
+        <div class="section-title">Попробовать другие оракулы</div>
+        <div class="oracle-links">
+            <a href="#" class="oracle-item">
+                <span class="oracle-emoji">✦</span> Карта дня Таро
+            </a>
+            <a href="#" class="oracle-item">
+                <span class="oracle-emoji">🌿</span> Что мешает финансам
+            </a>
+            <a href="#" class="oracle-item">
+                <span class="oracle-emoji">🌸</span> Что мешает личной жизни
+            </a>
+        </div>
+    </div>
+
+    <div class="diagnostic-block">
+        <div class="diagnostic-title">Диагностика и прогнозы</div>
+        <a href="#" class="secondary-btn-sage">Перейти к ценам</a>
+    </div>
+</div>
+
+<script>
+    const messages = [
+        "Не всё потерянное действительно ушло из твоей жизни.",
+        "То, что тревожит тебя сейчас, скоро потеряет силу.",
+        "Ты уже ближе к цели, чем тебе кажется.",
+        "Удача постепенно поворачивается к тебе лицом.",
+        "Очень скоро многое станет яснее.",
+        "Иногда важно отпускать то, что больше не приносит радость.",
+        "Судьба подталкивает тебя к переменам.",
+        "Не забывай о том, чего хочешь именно ты.",
+        "В ближайшие дни появится знак, который нельзя игнорировать.",
+        "Твоё желание уже начинает исполняться.",
+        "Скоро ты увидишь истинное отношение человека.",
+        "Ты стоишь на пороге внутреннего обновления.",
+        "Скоро появится шанс исправить ситуацию.",
+        "Твоя энергия сейчас особенно притягательна для окружающих.",
+        "Ты скоро почувствуешь облегчение.",
+        "Неожиданная новость может изменить планы.",
+        "Сейчас лучше сохранять спокойствие и наблюдать.",
+        "То, чего ты ждёшь, уже движется к тебе.",
+        "Не соглашайся на меньшее, чем заслуживаешь.",
+        "Один твой шаг способен изменить многое.",
+        "Чужое мнение сейчас не должно определять твой путь.",
+        "Не бойся просить достойную оплату за свой труд.",
+        "Появится шанс увеличить доход.",
+        "Твоё изобилие начинается с внутреннего разрешения иметь больше.",
+        "Старые страхи мешают принять новые возможности.",
+        "Скоро ты увидишь результат своих усилий.",
+        "Важное предложение может прийти неожиданно.",
+        "Не отказывайся от идеи только потому, что она кажется слишком большой.",
+        "Тебе пора перестать обесценивать себя.",
+        "Финансовый рост начинается с решения действовать иначе.",
+        "Деньги любят движение — не застывай на месте.",
+        "Важно беречь то, что наполняет тебя теплом.",
+        "Важный разговор способен многое расставить по местам.",
+        "Не позволяй прошлому мешать твоему счастью.",
+        "Любовь особенно ценна там, где есть взаимность.",
+        "Ты заслуживаешь отношений, в которых спокойно душе.",
+        "Некоторым событиям нужно время.",
+        "Скоро многое начнёт восприниматься иначе.",
+        "Один случайный момент окажется судьбоносным.",
+        "Всё, что сейчас происходит, ведёт тебя к новому этапу жизни.",
+        "Скоро появится причина снова поверить в хорошее.",
+        "Твоя судьба меняется через маленькие решения.",
+        "Позволь себе отдохнуть так, как давно хочется.",
+        "Благодарность откроет дверь для следующего хорошего события.",
+        "Отпусти обиду не ради других, а ради своего спокойного сердца."
+    ];
+
+    const getMessageBtn = document.getElementById('getMessageBtn');
+    const messageOutput = document.getElementById('messageOutput');
+    const messageText = document.getElementById('messageText');
+
+    function getRandomMessage() {
+        return messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    function displayMessage() {
+        const newMessage = getRandomMessage();
+        messageText.textContent = newMessage;
+        if (messageOutput.classList.contains('hidden')) {
+            messageOutput.classList.remove('hidden');
+            messageOutput.style.opacity = '0';
+            setTimeout(() => {
+                messageOutput.style.transition = 'opacity 0.3s ease';
+                messageOutput.style.opacity = '1';
+            }, 10);
+        } else {
+            messageOutput.style.transition = 'none';
+            messageOutput.style.opacity = '0';
+            setTimeout(() => {
+                messageText.textContent = newMessage;
+                messageOutput.style.transition = 'opacity 0.3s ease';
+                messageOutput.style.opacity = '1';
+            }, 50);
+        }
+    }
+
+    getMessageBtn.addEventListener('click', displayMessage);
+</script>
+</body>
+</html>
