@@ -13,15 +13,15 @@
         }
 
         body {
-            background-color: #FDF8F0;
             font-family: 'Inter', sans-serif;
             color: #2C2A2B;
             line-height: 1.5;
             padding: 0 16px;
             position: relative;
+            background-color: #E8DCCC; /* тёплый золотисто-бежевый */
         }
 
-        /* Элегантный фон — контуры луны, планет, звёзд цветом дымчатой сирени */
+        /* Фон старого пергамента */
         body::before {
             content: '';
             position: fixed;
@@ -32,51 +32,24 @@
             pointer-events: none;
             z-index: 0;
             background-image: 
-                /* Луна (полный круг) */
-                radial-gradient(circle at 15% 25%, transparent 18px, #A28F9D 18px, #A28F9D 20px, transparent 20px),
-                /* Луна (серп) — месяц */
-                radial-gradient(circle at 85% 70%, transparent 22px, #A28F9D 22px, #A28F9D 24px, transparent 24px),
-                /* Звезда 1 (четыре точки в форме звезды) */
-                radial-gradient(circle at 30% 60%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 30% 60%, #A28F9D 1px, transparent 1px),
-                /* Планета с кольцом (как Сатурн) — круг и овал */
-                radial-gradient(circle at 70% 20%, transparent 10px, #A28F9D 10px, #A28F9D 11px, transparent 11px),
-                /* Маленькие звёзды-точки */
-                radial-gradient(circle at 45% 85%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 8% 50%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 92% 40%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 55% 15%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 60% 95%, #A28F9D 1px, transparent 1px),
-                radial-gradient(circle at 20% 80%, #A28F9D 1px, transparent 1px),
-                /* Ещё одна планета (поменьше) */
-                radial-gradient(circle at 40% 35%, transparent 6px, #A28F9D 6px, #A28F9D 7px, transparent 7px);
-            background-repeat: no-repeat;
-            background-size: 
-                50px 50px,
-                60px 60px,
-                20px 20px,
-                40px 40px,
-                30px 30px,
-                20px 20px,
-                20px 20px,
-                20px 20px,
-                20px 20px,
-                20px 20px,
-                20px 20px,
-                25px 25px;
-            background-position: 
-                15% 25%,
-                85% 70%,
-                30% 60%,
-                70% 20%,
-                45% 85%,
-                8% 50%,
-                92% 40%,
-                55% 15%,
-                60% 95%,
-                20% 80%,
-                40% 35%;
-            opacity: 0.25;
+                repeating-linear-gradient(45deg, rgba(200, 170, 120, 0.1) 0px, rgba(200, 170, 120, 0.1) 2px, transparent 2px, transparent 8px),
+                repeating-linear-gradient(135deg, rgba(180, 145, 100, 0.08) 0px, rgba(180, 145, 100, 0.08) 1px, transparent 1px, transparent 6px),
+                radial-gradient(ellipse at 20% 30%, rgba(150, 110, 70, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(120, 85, 50, 0.08) 0%, transparent 60%);
+            background-blend-mode: overlay;
+        }
+
+        /* Затемнение по краям для эффекта старины */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            box-shadow: inset 0 0 150px rgba(100, 70, 40, 0.15);
         }
 
         .container {
@@ -93,6 +66,7 @@
             letter-spacing: -0.01em;
             margin-bottom: 48px;
             text-align: center;
+            color: #3D2B1A;
         }
 
         .oracle-title {
@@ -101,12 +75,13 @@
             margin-bottom: 16px;
             letter-spacing: -0.01em;
             text-align: left;
+            color: #3D2B1A;
         }
 
         .intro-text {
             font-size: 18px;
             font-weight: 400;
-            color: #4A4545;
+            color: #5A4A35;
             margin-bottom: 32px;
             line-height: 1.4;
             text-align: left;
@@ -133,13 +108,13 @@
         }
 
         .message-block {
-            background-color: #FFFFFFCC;
+            background-color: rgba(255, 248, 235, 0.85);
             backdrop-filter: blur(2px);
             border-radius: 24px;
             padding: 24px 20px;
             margin-bottom: 48px;
             text-align: center;
-            border: 1px solid #F0E4D4;
+            border: 1px solid #D8C4A8;
         }
 
         .universe-says {
@@ -166,7 +141,7 @@
         .consult-text {
             font-size: 16px;
             font-weight: 400;
-            color: #2C2A2B;
+            color: #3D2B1A;
             margin-bottom: 16px;
         }
 
@@ -219,6 +194,7 @@
             font-weight: 500;
             margin-bottom: 20px;
             letter-spacing: -0.01em;
+            color: #3D2B1A;
         }
 
         .oracle-links {
@@ -233,10 +209,10 @@
             gap: 12px;
             font-size: 16px;
             font-weight: 400;
-            color: #2C2A2B;
+            color: #3D2B1A;
             text-decoration: none;
             padding: 8px 0;
-            border-bottom: 1px solid #F0E4D4;
+            border-bottom: 1px solid #D8C4A8;
             transition: color 0.2s ease;
         }
 
@@ -254,13 +230,14 @@
             margin: 48px 0 0;
             text-align: center;
             padding-top: 24px;
-            border-top: 1px solid #F0E4D4;
+            border-top: 1px solid #D8C4A8;
         }
 
         .diagnostic-title {
             font-size: 18px;
             font-weight: 500;
             margin-bottom: 20px;
+            color: #3D2B1A;
         }
 
         @media (max-width: 480px) {
