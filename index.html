@@ -1,10 +1,14 @@
+```html id="od9hmm"
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Анна — Послание Вселенной</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+
+    <!-- Шрифт старинной книги -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -13,167 +17,221 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             color: #2C2A2B;
             line-height: 1.5;
             padding: 0 16px;
             position: relative;
-            background-color: #DCC8A8; /* базовый тёплый тон */
+            overflow-x: hidden;
+
+            /* Фон древнего свитка */
+            background:
+                radial-gradient(circle at top, rgba(255,245,220,0.35), transparent 40%),
+                linear-gradient(
+                    180deg,
+                    #e2c79d 0%,
+                    #d7b98c 35%,
+                    #c9a979 70%,
+                    #b89063 100%
+                );
+
+            min-height: 100vh;
         }
 
-        /* Основной слой — имитация пергамента */
+        /* Текстура бумаги */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
-            background-image: 
-                /* Светлое пятно в центре (как от освещения) */
-                radial-gradient(ellipse at 50% 40%, rgba(250, 242, 225, 0.6) 0%, rgba(230, 210, 180, 0.3) 60%, rgba(200, 170, 135, 0.2) 100%),
-                /* Мелкая зернистость пергамента */
-                repeating-radial-gradient(circle at 20% 30%, rgba(160, 120, 80, 0.08) 0px, rgba(160, 120, 80, 0.08) 1px, transparent 1px, transparent 8px),
-                repeating-radial-gradient(circle at 70% 80%, rgba(140, 100, 65, 0.06) 0px, rgba(140, 100, 65, 0.06) 1px, transparent 1px, transparent 10px);
-            background-blend-mode: overlay;
+
+            background-image:
+                repeating-radial-gradient(
+                    circle at 20% 30%,
+                    rgba(90,60,30,0.05) 0px,
+                    rgba(90,60,30,0.05) 1px,
+                    transparent 2px,
+                    transparent 8px
+                ),
+
+                repeating-radial-gradient(
+                    circle at 70% 60%,
+                    rgba(120,80,40,0.04) 0px,
+                    rgba(120,80,40,0.04) 1px,
+                    transparent 2px,
+                    transparent 10px
+                ),
+
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(120,70,30,0.10),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(90,50,20,0.08),
+                    transparent 40%
+                );
+
+            mix-blend-mode: multiply;
+            opacity: 0.9;
         }
 
-        /* Тёмные края (эффект старого листа) */
+        /* Затемнение краёв */
         body::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
-            box-shadow: inset 0 0 120px rgba(100, 70, 40, 0.25);
+
+            background:
+                radial-gradient(
+                    circle,
+                    transparent 55%,
+                    rgba(60,35,15,0.15) 100%
+                );
+
+            box-shadow:
+                inset 0 0 120px rgba(70,40,15,0.35),
+                inset 0 0 220px rgba(40,20,5,0.20);
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 0 64px;
+            padding: 48px 0 72px;
             position: relative;
             z-index: 1;
         }
 
         .name {
-            font-size: 32px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 48px;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 56px;
             text-align: center;
-            color: #3D2B1A;
+            color: #4A2E18;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.25);
         }
 
         .oracle-title {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
             text-align: left;
-            color: #3D2B1A;
+            color: #4A2E18;
         }
 
         .intro-text {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 400;
-            color: #5A4A35;
-            margin-bottom: 32px;
-            line-height: 1.4;
+            color: #5C4632;
+            margin-bottom: 36px;
+            line-height: 1.5;
             text-align: left;
         }
 
         .primary-btn {
-            background-color: #6B8F7A;
-            color: white;
-            border: none;
+            background: linear-gradient(180deg, #7A5A38 0%, #5E4228 100%);
+            color: #F6E7C8;
+            border: 1px solid rgba(255,255,255,0.15);
             width: 100%;
-            padding: 16px 24px;
-            font-size: 18px;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            border-radius: 48px;
+            padding: 18px 24px;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            border-radius: 999px;
             cursor: pointer;
-            transition: background-color 0.2s ease;
-            margin-bottom: 32px;
+            transition: all 0.25s ease;
+            margin-bottom: 40px;
             text-align: center;
+            box-shadow:
+                0 8px 24px rgba(50,25,10,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.15);
         }
 
         .primary-btn:hover {
-            background-color: #5D7D6B;
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 28px rgba(50,25,10,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
         .message-block {
-            background-color: rgba(250, 242, 230, 0.75);
+            background: rgba(245, 229, 197, 0.72);
             backdrop-filter: blur(2px);
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-bottom: 48px;
+            border-radius: 28px;
+            padding: 32px 24px;
+            margin-bottom: 56px;
             text-align: center;
-            border: 1px solid #D8C4A8;
+
+            border: 1px solid rgba(120,80,40,0.18);
+
+            box-shadow:
+                0 12px 36px rgba(70,40,15,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.35);
         }
 
         .universe-says {
             font-size: 14px;
-            font-weight: 400;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #A1825A;
-            margin-bottom: 12px;
+            letter-spacing: 2px;
+            color: #8A6645;
+            margin-bottom: 16px;
         }
 
         .message-text {
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #2C2A2B;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.45;
+            color: #3A2416;
         }
 
         .consult-block {
-            margin: 48px 0;
+            margin: 56px 0;
             text-align: center;
         }
 
         .consult-text {
-            font-size: 16px;
+            font-size: 24px;
             font-weight: 400;
-            color: #3D2B1A;
-            margin-bottom: 16px;
+            color: #4A2E18;
+            margin-bottom: 20px;
         }
 
         .secondary-btn-lilac {
-            background-color: #A28F9D;
+            background: linear-gradient(180deg, #8D6A54 0%, #6E4E39 100%);
             border: none;
-            color: white;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            border-radius: 48px;
+            color: #F8EFD9;
+            padding: 14px 28px;
+            font-size: 22px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            border-radius: 999px;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 8px 24px rgba(50,25,10,0.22);
         }
 
         .secondary-btn-lilac:hover {
-            background-color: #8E7A89;
+            transform: translateY(-2px);
         }
 
         .secondary-btn-sage {
             background-color: transparent;
-            border: 1.5px solid #6B8F7A;
-            color: #6B8F7A;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            border-radius: 48px;
+            border: 1.5px solid #6A4A2D;
+            color: #6A4A2D;
+            padding: 14px 28px;
+            font-size: 22px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            border-radius: 999px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
@@ -181,99 +239,61 @@
         }
 
         .secondary-btn-sage:hover {
-            background-color: #6B8F7A10;
-            border-color: #5D7D6B;
-            color: #5D7D6B;
+            background-color: rgba(106,74,45,0.08);
         }
 
         .other-oracles {
-            margin: 48px 0;
+            margin: 56px 0;
         }
 
         .section-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            color: #3D2B1A;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #4A2E18;
         }
 
         .oracle-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .oracle-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 16px;
-            font-weight: 400;
-            color: #3D2B1A;
+            gap: 14px;
+            font-size: 24px;
+            font-weight: 500;
+            color: #4A2E18;
             text-decoration: none;
-            padding: 8px 0;
-            border-bottom: 1px solid #D8C4A8;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(120,80,40,0.18);
             transition: color 0.2s ease;
         }
 
         .oracle-item:hover {
-            color: #6B8F7A;
+            color: #7A5A38;
         }
 
         .oracle-emoji {
-            font-size: 22px;
-            width: 28px;
+            font-size: 24px;
+            width: 30px;
             text-align: center;
         }
 
         .diagnostic-block {
-            margin: 48px 0 0;
+            margin: 56px 0 0;
             text-align: center;
-            padding-top: 24px;
-            border-top: 1px solid #D8C4A8;
+            padding-top: 28px;
+            border-top: 1px solid rgba(120,80,40,0.18);
         }
 
         .diagnostic-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: #3D2B1A;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 0 20px;
-            }
-            .container {
-                padding: 32px 0 48px;
-            }
-            .name {
-                font-size: 28px;
-                margin-bottom: 36px;
-            }
-            .oracle-title {
-                font-size: 22px;
-            }
-            .intro-text {
-                font-size: 16px;
-            }
-            .primary-btn {
-                font-size: 17px;
-                padding: 14px 20px;
-            }
-            .message-text {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .message-text {
-                font-size: 17px;
-            }
-            .oracle-item {
-                font-size: 15px;
-            }
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #4A2E18;
         }
 
         .primary-btn:active {
@@ -283,16 +303,54 @@
         .hidden {
             display: none;
         }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 36px 0 56px;
+            }
+
+            .name {
+                font-size: 36px;
+                margin-bottom: 42px;
+            }
+
+            .oracle-title {
+                font-size: 30px;
+            }
+
+            .intro-text {
+                font-size: 22px;
+            }
+
+            .message-text {
+                font-size: 28px;
+            }
+
+            .oracle-item {
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 <body>
+
 <div class="container">
+
     <div class="name">Анна</div>
 
     <div class="oracle-title">Послание Вселенной</div>
-    <div class="intro-text">Что вам важно сейчас услышать? Доверьтесь тому, что придёт.</div>
 
-    <button class="primary-btn" id="getMessageBtn">Получить послание</button>
+    <div class="intro-text">
+        Что вам важно сейчас услышать? Доверьтесь тому, что придёт.
+    </div>
+
+    <button class="primary-btn" id="getMessageBtn">
+        Получить послание
+    </button>
 
     <div id="messageOutput" class="message-block hidden">
         <div class="universe-says">Вселенная говорит тебе</div>
@@ -300,28 +358,53 @@
     </div>
 
     <div class="consult-block">
-        <div class="consult-text">Хотите разобрать свою ситуацию? Сделаем это на личной консультации.</div>
-        <a href="https://t.me/Anna_prognoz" class="secondary-btn-lilac" target="_blank">Написать Анне</a>
+        <div class="consult-text">
+            Хотите разобрать свою ситуацию? Сделаем это на личной консультации.
+        </div>
+
+        <a href="https://t.me/Anna_prognoz"
+           class="secondary-btn-lilac"
+           target="_blank">
+            Написать Анне
+        </a>
     </div>
 
     <div class="other-oracles">
-        <div class="section-title">Другие оракулы</div>
+
+        <div class="section-title">
+            Другие оракулы
+        </div>
+
         <div class="oracle-links">
+
             <a href="#" class="oracle-item">
-                <span class="oracle-emoji">✦</span> Карта дня
+                <span class="oracle-emoji">✦</span>
+                Карта дня
             </a>
+
             <a href="#" class="oracle-item">
-                <span class="oracle-emoji">💎</span> Что мешает финансам
+                <span class="oracle-emoji">💎</span>
+                Что мешает финансам
             </a>
+
             <a href="#" class="oracle-item">
-                <span class="oracle-emoji">❤️</span> Что мешает личной жизни
+                <span class="oracle-emoji">❤️</span>
+                Что мешает личной жизни
             </a>
+
         </div>
     </div>
 
     <div class="diagnostic-block">
-        <div class="diagnostic-title">Диагностика и прогнозы</div>
-        <a href="#" class="secondary-btn-sage">Перейти к услугам</a>
+
+        <div class="diagnostic-title">
+            Диагностика и прогнозы
+        </div>
+
+        <a href="#" class="secondary-btn-sage">
+            Перейти к услугам
+        </a>
+
     </div>
 </div>
 
@@ -384,26 +467,35 @@
 
     function displayMessage() {
         const newMessage = getRandomMessage();
+
         messageText.textContent = newMessage;
+
         if (messageOutput.classList.contains('hidden')) {
+
             messageOutput.classList.remove('hidden');
             messageOutput.style.opacity = '0';
+
             setTimeout(() => {
-                messageOutput.style.transition = 'opacity 0.3s ease';
+                messageOutput.style.transition = 'opacity 0.4s ease';
                 messageOutput.style.opacity = '1';
             }, 10);
+
         } else {
+
             messageOutput.style.transition = 'none';
             messageOutput.style.opacity = '0';
+
             setTimeout(() => {
                 messageText.textContent = newMessage;
-                messageOutput.style.transition = 'opacity 0.3s ease';
+                messageOutput.style.transition = 'opacity 0.4s ease';
                 messageOutput.style.opacity = '1';
-            }, 50);
+            }, 80);
         }
     }
 
     getMessageBtn.addEventListener('click', displayMessage);
 </script>
+
 </body>
 </html>
+```
