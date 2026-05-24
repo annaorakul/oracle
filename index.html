@@ -18,7 +18,7 @@
             line-height: 1.5;
             padding: 0 16px;
             position: relative;
-            background-color: #E3D5BC; /* тёплая пергаментная основа */
+            background-color: #E3D5BC;
         }
 
         /* Мраморный фон в пергаментных тонах */
@@ -32,7 +32,6 @@
             pointer-events: none;
             z-index: 0;
             background-image: 
-                /* плавные мраморные прожилки */
                 repeating-linear-gradient(120deg, 
                     rgba(190, 165, 130, 0.08) 0px, 
                     rgba(190, 165, 130, 0.08) 1px, 
@@ -48,17 +47,14 @@
                     rgba(170, 140, 105, 0.06) 1px, 
                     transparent 1px, 
                     transparent 120px),
-                /* лёгкие округлые «разводы» как на мраморе */
                 radial-gradient(ellipse at 25% 40%, rgba(200, 175, 140, 0.12) 0%, transparent 45%),
                 radial-gradient(ellipse at 75% 65%, rgba(180, 150, 115, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 45% 85%, rgba(195, 170, 135, 0.08) 0%, transparent 40%),
                 radial-gradient(ellipse at 88% 15%, rgba(210, 185, 150, 0.1) 0%, transparent 55%),
-                /* мягкая зернистость — лёгкая «матовость» мрамора */
                 repeating-radial-gradient(circle at 50% 50%, rgba(130, 100, 70, 0.03) 0px, rgba(130, 100, 70, 0.03) 1px, transparent 1px, transparent 6px);
             background-blend-mode: overlay;
         }
 
-        /* Лёгкое затемнение по краям — как тень от старого камня */
         body::after {
             content: '';
             position: fixed;
