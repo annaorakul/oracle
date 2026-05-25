@@ -12,6 +12,11 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            min-height: 100%;
+            height: auto;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: #2C241A;
@@ -76,6 +81,7 @@
             background-color: rgba(252, 248, 238, 0.6);
             backdrop-filter: blur(1px);
             border-radius: 48px;
+            overflow: visible;
         }
 
         .name {
@@ -258,29 +264,48 @@
             color: #2F2418;
         }
 
+        /* Исправленная мобильная версия — всё видно полностью */
         @media (max-width: 560px) {
             body {
                 padding: 0 12px;
             }
             .container {
-                padding: 24px 16px 48px;
+                padding: 20px 16px 40px;
+                margin: 20px auto;
             }
             .name {
                 font-size: 28px;
-                margin-bottom: 32px;
+                margin-bottom: 24px;
             }
             .oracle-title {
                 font-size: 22px;
+                margin-bottom: 12px;
             }
             .intro-text {
                 font-size: 15px;
+                margin-bottom: 24px;
             }
             .primary-btn {
                 font-size: 17px;
                 padding: 14px 20px;
+                margin-bottom: 24px;
+            }
+            .message-block {
+                padding: 20px 16px;
+                margin-bottom: 32px;
             }
             .message-text {
                 font-size: 18px;
+            }
+            .consult-block {
+                margin: 32px 0;
+            }
+            .other-oracles {
+                margin: 32px 0;
+            }
+            .diagnostic-block {
+                margin: 32px 0 0;
+                padding-top: 20px;
             }
         }
 
@@ -312,7 +337,7 @@
     <button class="primary-btn" id="getMessageBtn">Получить послание</button>
 
     <div id="messageOutput" class="message-block hidden">
-        <div class="universe-says">Вселенная говорит тебе</div>
+        <div class="universe-says">Вселенная говорит</div>
         <div class="message-text" id="messageText"></div>
     </div>
 
