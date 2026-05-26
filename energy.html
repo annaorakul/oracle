@@ -190,6 +190,28 @@
             text-decoration: underline;
         }
 
+        /* Блок с информацией об услугах (ненавязчиво) */
+        .services-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(196, 168, 130, 0.3);
+            font-size: 13px;
+            color: #8F7A5C;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .services-note a {
+            color: #A89070;
+            text-decoration: none;
+            border-bottom: 1px dotted #C4A882;
+        }
+
+        .services-note a:hover {
+            color: #7A6242;
+            border-bottom: 1px solid #7A6242;
+        }
+
         /* Футер */
         .footer-note {
             margin-top: 20px;
@@ -234,7 +256,7 @@
 </head>
 <body>
 
-<!-- Кнопка возврата на главную (исправленная ссылка) -->
+<!-- Кнопка возврата на главную (круглая, фиксированная) -->
 <a href="index.html" class="back-home" title="На главную">←</a>
 
 <div class="container">
@@ -252,8 +274,14 @@
 
     <button class="secondary-btn" id="againBtn">ЕЩЁ РАЗ</button>
 
-    <!-- Дополнительная ссылка возврата внизу (исправленная) -->
+    <!-- Дополнительная ссылка возврата внизу -->
     <a href="index.html" class="back-home-bottom">← На главную</a>
+
+    <!-- Блок об услугах (ненавязчиво) -->
+    <div class="services-note">
+        🌙 Если нужен личный прогноз — я помогаю смотреть вперёд. 
+        Напишите мне, метод не важен, важен результат.
+    </div>
 
     <div class="footer-note">✨ Светлый провидец ✨</div>
 </div>
@@ -287,18 +315,22 @@
         "Вероятно ощущение, что одна глава подошла к концу и впереди новый уровень. Есть шанс гармонично завершить начатое."
     ];
 
+    // Функция получения случайного послания (ИСПРАВЛЕНА)
     function getRandomMessage() {
-        const randomIndex = Math.floor(Math.random() messages.length);
+        const randomIndex = Math.floor(Math.random() * messages.length);
         return messages[randomIndex];
     }
 
+    // Находим кнопки и поле для текста
     const getEnergyBtn = document.getElementById('getEnergyBtn');
     const againBtn = document.getElementById('againBtn');
     const messageTextDiv = document.getElementById('messageText');
     const messageArea = document.getElementById('messageArea');
 
+    // Функция показа нового послания
     function showNewMessage() {
         const newMessage = getRandomMessage();
+        // Небольшая анимация
         messageArea.style.animation = 'none';
         messageTextDiv.style.opacity = '0.7';
         setTimeout(() => {
@@ -308,6 +340,7 @@
         }, 80);
     }
 
+    // Назначаем обработчики нажатий (ПРОВЕРЕНО)
     getEnergyBtn.addEventListener('click', showNewMessage);
     againBtn.addEventListener('click', showNewMessage);
 </script>
