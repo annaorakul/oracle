@@ -12,7 +12,7 @@
         }
 
         body {
-            background: linear-gradient(145deg, #FFF5E8 0%, #FFEFDF 100%);
+            background: linear-gradient(145deg, #E9E6F0 0%, #D8DCE6 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,16 +24,16 @@
         }
 
         @keyframes slowSky {
-            0% { background: #FFF5E8; }
-            50% { background: #FFF8F0; }
-            100% { background: #FFF5E8; }
+            0% { background: #E9E6F0; }
+            50% { background: #E0E2EC; }
+            100% { background: #E9E6F0; }
         }
 
         .back-home {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: rgba(255, 245, 230, 0.8);
+            background: rgba(200, 190, 210, 0.7);
             backdrop-filter: blur(4px);
             width: 48px;
             height: 48px;
@@ -44,27 +44,27 @@
             text-decoration: none;
             font-size: 26px;
             font-weight: 400;
-            color: #B89A7A;
+            color: #4A5D4E;
             transition: all 0.25s ease;
             z-index: 100;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(200, 170, 140, 0.3);
+            border: 1px solid rgba(120, 100, 130, 0.2);
         }
 
         .back-home:hover {
-            background: #F5E2D0;
+            background: #C5BDD4;
             transform: scale(1.05);
-            color: #8B694A;
+            color: #2C3E2F;
         }
 
         .container {
             max-width: 650px;
             width: 100%;
-            background: rgba(255, 252, 245, 0.85);
+            background: rgba(250, 248, 255, 0.85);
             backdrop-filter: blur(4px);
             border-radius: 56px;
             padding: 48px 32px 56px;
-            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(200, 170, 140, 0.2);
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(160, 140, 180, 0.2);
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -72,17 +72,17 @@
         h1 {
             font-family: 'Playfair Display', 'Cormorant Garamond', serif;
             font-size: 56px;
-            font-weight: 450;
+            font-weight: 500;
             letter-spacing: 3px;
-            color: #B27D55;
+            color: #3A4D3E; /* глубокий шалфей, тёмный */
             margin-bottom: 24px;
             animation: softGlow 3s ease-in-out infinite;
         }
 
         @keyframes softGlow {
-            0% { text-shadow: 0 0 0px rgba(200, 150, 110, 0); }
-            50% { text-shadow: 0 0 10px rgba(200, 150, 110, 0.3); }
-            100% { text-shadow: 0 0 0px rgba(200, 150, 110, 0); }
+            0% { text-shadow: 0 0 0px rgba(60, 80, 65, 0); }
+            50% { text-shadow: 0 0 8px rgba(150, 130, 170, 0.3); }
+            100% { text-shadow: 0 0 0px rgba(60, 80, 65, 0); }
         }
 
         .star {
@@ -91,6 +91,7 @@
             margin-bottom: 10px;
             animation: twinkle 2.2s ease-in-out infinite;
             opacity: 0.7;
+            color: #9A8BB2; /* дымчатая сирень */
         }
 
         @keyframes twinkle {
@@ -101,11 +102,11 @@
 
         .instruction {
             font-size: 15px;
-            color: #BF9A7A;
+            color: #6A7B6E;
             line-height: 1.55;
             margin-bottom: 28px;
             font-style: italic;
-            background: rgba(245, 235, 220, 0.5);
+            background: rgba(210, 200, 225, 0.3);
             padding: 18px 20px;
             border-radius: 48px;
             max-width: 420px;
@@ -114,14 +115,14 @@
         }
 
         .primary-btn {
-            background: #F0E0CE;
+            background: #B8C7B0; /* светлый шалфей */
             border: none;
             padding: 16px 32px;
             font-size: 18px;
             font-weight: 550;
             font-family: 'Raleway', sans-serif;
             letter-spacing: 2.5px;
-            color: #7C5B40;
+            color: #2C3E2F;
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -134,13 +135,13 @@
         }
 
         @keyframes softPulse {
-            0% { box-shadow: 0 0 0 0 rgba(210, 175, 140, 0.3); }
-            70% { box-shadow: 0 0 0 8px rgba(210, 175, 140, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(210, 175, 140, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(150, 170, 130, 0.3); }
+            70% { box-shadow: 0 0 0 8px rgba(150, 170, 130, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(150, 170, 130, 0); }
         }
 
         .primary-btn:hover {
-            background: #EAD5BF;
+            background: #A5B89A;
             transform: scale(1.02);
         }
 
@@ -149,11 +150,11 @@
         }
 
         .message-area {
-            background: rgba(250, 242, 232, 0.7);
+            background: rgba(240, 235, 250, 0.7);
             border-radius: 40px;
             padding: 32px 28px;
             margin: 20px 0 28px;
-            border: 1px solid rgba(200, 170, 140, 0.3);
+            border: 1px solid rgba(150, 130, 170, 0.3);
             min-height: 200px;
             display: flex;
             align-items: center;
@@ -163,7 +164,7 @@
         .message-text {
             font-size: 18px;
             line-height: 1.65;
-            color: #5C4230;
+            color: #3A4D3E;
             font-weight: 440;
             text-align: center;
             max-width: 500px;
@@ -175,45 +176,42 @@
             margin-top: 20px;
             display: block;
             font-size: 13px;
-            color: #C4A58A;
+            color: #7E8F82;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .back-home-bottom:hover {
-            color: #9B7A5E;
+            color: #4A5D4E;
             text-decoration: underline;
         }
 
         .services-note {
             margin-top: 40px;
             padding-top: 24px;
-            border-top: 1px solid rgba(180, 150, 120, 0.25);
+            border-top: 1px solid rgba(130, 110, 150, 0.25);
             font-size: 14px;
-            color: #A58266;
+            color: #6A7B6E;
             text-align: center;
             line-height: 1.5;
-            font-style: normal;
-            letter-spacing: 0.3px;
         }
 
         .services-note span {
             display: inline-block;
-            background: rgba(235, 220, 200, 0.4);
+            background: rgba(210, 200, 225, 0.4);
             padding: 8px 20px;
             border-radius: 60px;
         }
 
-        /* Кнопка "Написать Анне" */
         .contact-btn {
-            background: #E8D5B5;
+            background: #C5BDD4; /* дымчатая сирень */
             border: none;
             padding: 12px 28px;
             font-size: 15px;
             font-weight: 550;
             font-family: 'Raleway', sans-serif;
             letter-spacing: 1px;
-            color: #7C5B40;
+            color: #2C3E2F;
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -225,7 +223,7 @@
         }
 
         .contact-btn:hover {
-            background: #DDC9A4;
+            background: #B3A9C9;
             transform: scale(1.02);
         }
 
@@ -302,9 +300,8 @@
         <span>🌙 Хотите разобрать свою ситуацию, получить прогноз?<br>Сделаем это на личной консультации.</span>
     </div>
 
-    <!-- Кнопка "Написать Анне" -->
     <div style="margin-top: 20px;">
-        <a href="https://t.me/Anna_prognoz" target="_blank" class="contact-btn">📩 Написать Анне</a>
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="contact-btn">Написать Анне</a>
     </div>
 </div>
 
