@@ -234,8 +234,8 @@
 </head>
 <body>
 
-<!-- Кнопка возврата на главную (круглая, фиксированная) -->
-<a href="/" class="back-home" title="На главную">←</a>
+<!-- Кнопка возврата на главную (исправленная ссылка) -->
+<a href="index.html" class="back-home" title="На главную">←</a>
 
 <div class="container">
     <h1>ЭНЕРГИЯ ДНЯ</h1>
@@ -252,15 +252,15 @@
 
     <button class="secondary-btn" id="againBtn">ЕЩЁ РАЗ</button>
 
-    <!-- Дополнительная ссылка возврата внизу (на случай, если скролл) -->
-    <a href="/" class="back-home-bottom">← На главную</a>
+    <!-- Дополнительная ссылка возврата внизу (исправленная) -->
+    <a href="index.html" class="back-home-bottom">← На главную</a>
 
     <div class="footer-note">✨ Светлый провидец ✨</div>
 </div>
 
 <script>
     // ============================================================
-    // МАССИВ ПОСЛАНИЙ (22 старших аркана в мягком стиле)
+    // МАССИВ ПОСЛАНИЙ (22 старших аркана)
     // ============================================================
     const messages = [
         "Сегодня может потянуть на приключения или спонтанные решения. Возможно желание в чем-то пойти на риск. Помните: оставить контроль и довериться бывает весьма полезно.",
@@ -288,7 +288,7 @@
     ];
 
     function getRandomMessage() {
-        const randomIndex = Math.floor(Math.random() * messages.length);
+        const randomIndex = Math.floor(Math.random() messages.length);
         return messages[randomIndex];
     }
 
