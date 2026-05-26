@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Энергия дня — Светлый провидец</title>
+    <title>Энергия дня</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #FFF9F0 0%, #FDF5E6 100%);
+            background: linear-gradient(145deg, #FFF5E8 0%, #FFEFDF 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -20,14 +20,20 @@
             font-family: 'Raleway', 'Roboto', 'Open Sans', sans-serif;
             padding: 20px;
             position: relative;
+            animation: slowSky 12s ease-in-out infinite;
         }
 
-        /* Кнопка возврата на главную (круглая, фиксированная) */
+        @keyframes slowSky {
+            0% { background: #FFF5E8; }
+            50% { background: #FFF8F0; }
+            100% { background: #FFF5E8; }
+        }
+
         .back-home {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: rgba(232, 213, 181, 0.7);
+            background: rgba(255, 245, 230, 0.8);
             backdrop-filter: blur(4px);
             width: 48px;
             height: 48px;
@@ -38,195 +44,201 @@
             text-decoration: none;
             font-size: 26px;
             font-weight: 400;
-            color: #5C4B32;
+            color: #B89A7A;
             transition: all 0.25s ease;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(196, 168, 130, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(200, 170, 140, 0.3);
         }
 
         .back-home:hover {
-            background: #E8D5B5;
+            background: #F5E2D0;
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: #8B694A;
         }
 
-        .back-home:active {
-            transform: scale(0.96);
-        }
-
-        /* Контейнер */
         .container {
             max-width: 650px;
             width: 100%;
-            background: rgba(255, 250, 240, 0.9);
-            backdrop-filter: blur(2px);
-            border-radius: 48px;
-            padding: 40px 32px 50px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(196, 168, 130, 0.2);
+            background: rgba(255, 252, 245, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 56px;
+            padding: 48px 32px 56px;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(200, 170, 140, 0.2);
             text-align: center;
             transition: all 0.3s ease;
         }
 
-        /* Заголовок */
         h1 {
             font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-            font-size: 52px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #2C2C2C;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            font-size: 14px;
+            font-size: 56px;
+            font-weight: 450;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #A89070;
+            color: #B27D55;
             margin-bottom: 24px;
-            font-weight: 400;
+            animation: softGlow 3s ease-in-out infinite;
         }
 
-        /* Линия-акцент */
-        .line {
-            width: 60px;
-            height: 1px;
-            background: #C4A882;
-            margin: 0 auto 32px auto;
+        @keyframes softGlow {
+            0% { text-shadow: 0 0 0px rgba(200, 150, 110, 0); }
+            50% { text-shadow: 0 0 10px rgba(200, 150, 110, 0.3); }
+            100% { text-shadow: 0 0 0px rgba(200, 150, 110, 0); }
         }
 
-        /* Кнопка УЗНАТЬ */
+        .star {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: twinkle 2.2s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.4; transform: scale(0.9); }
+        }
+
+        .instruction {
+            font-size: 15px;
+            color: #BF9A7A;
+            line-height: 1.55;
+            margin-bottom: 28px;
+            font-style: italic;
+            background: rgba(245, 235, 220, 0.5);
+            padding: 18px 20px;
+            border-radius: 48px;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .primary-btn {
-            background: #E8D5B5;
+            background: #F0E0CE;
             border: none;
             padding: 16px 32px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 550;
             font-family: 'Raleway', sans-serif;
-            letter-spacing: 2px;
-            color: #1A1A1A;
+            letter-spacing: 2.5px;
+            color: #7C5B40;
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
             width: 100%;
             max-width: 260px;
             margin: 0 auto 20px auto;
             display: block;
+            animation: softPulse 2.5s infinite;
+        }
+
+        @keyframes softPulse {
+            0% { box-shadow: 0 0 0 0 rgba(210, 175, 140, 0.3); }
+            70% { box-shadow: 0 0 0 8px rgba(210, 175, 140, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(210, 175, 140, 0); }
         }
 
         .primary-btn:hover {
-            background: #DDC9A4;
+            background: #EAD5BF;
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
 
         .primary-btn:active {
             transform: scale(0.98);
         }
 
-        /* Поле вывода послания */
         .message-area {
-            background: rgba(255, 248, 235, 0.8);
-            border-radius: 32px;
+            background: rgba(250, 242, 232, 0.7);
+            border-radius: 40px;
             padding: 32px 28px;
-            margin: 24px 0 28px;
-            border: 1px solid rgba(196, 168, 130, 0.3);
-            min-height: 220px;
+            margin: 20px 0 28px;
+            border: 1px solid rgba(200, 170, 140, 0.3);
+            min-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .message-text {
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.65;
-            color: #2C2C2C;
-            font-weight: 450;
+            color: #5C4230;
+            font-weight: 440;
             text-align: center;
             max-width: 500px;
             margin: 0 auto;
             font-family: 'Raleway', 'Roboto', sans-serif;
         }
 
-        /* Кнопка ЕЩЁ РАЗ */
-        .secondary-btn {
-            background: transparent;
-            border: 1px solid #C4A882;
-            padding: 12px 24px;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: 'Raleway', sans-serif;
-            letter-spacing: 1.5px;
-            color: #7A6242;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-            max-width: 180px;
-            margin: 0 auto;
-            display: block;
-            background: rgba(255, 250, 240, 0.6);
-        }
-
-        .secondary-btn:hover {
-            background: #E8D5B5;
-            border-color: #B8946A;
-            color: #2C2C2C;
-        }
-
-        /* Ссылка возврата внизу (дополнительная) */
         .back-home-bottom {
-            margin-top: 36px;
+            margin-top: 20px;
             display: block;
             font-size: 13px;
-            color: #B8A07E;
+            color: #C4A58A;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .back-home-bottom:hover {
-            color: #7A6242;
+            color: #9B7A5E;
             text-decoration: underline;
         }
 
-        /* Блок с информацией об услугах (ненавязчиво) */
         .services-note {
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(196, 168, 130, 0.3);
-            font-size: 13px;
-            color: #8F7A5C;
+            padding-top: 24px;
+            border-top: 1px solid rgba(180, 150, 120, 0.25);
+            font-size: 14px;
+            color: #A58266;
             text-align: center;
             line-height: 1.5;
+            font-style: normal;
+            letter-spacing: 0.3px;
         }
 
-        .services-note a {
-            color: #A89070;
+        .services-note span {
+            display: inline-block;
+            background: rgba(235, 220, 200, 0.4);
+            padding: 8px 20px;
+            border-radius: 60px;
+        }
+
+        /* Кнопка "Написать Анне" */
+        .contact-btn {
+            background: #E8D5B5;
+            border: none;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 550;
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: 1px;
+            color: #7C5B40;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            width: 100%;
+            max-width: 220px;
+            margin: 16px auto 0 auto;
+            display: inline-block;
             text-decoration: none;
-            border-bottom: 1px dotted #C4A882;
         }
 
-        .services-note a:hover {
-            color: #7A6242;
-            border-bottom: 1px solid #7A6242;
+        .contact-btn:hover {
+            background: #DDC9A4;
+            transform: scale(1.02);
         }
 
-        /* Футер */
-        .footer-note {
-            margin-top: 20px;
-            font-size: 11px;
-            color: #CAB89C;
-            letter-spacing: 0.5px;
+        .contact-btn:active {
+            transform: scale(0.98);
         }
 
-        /* Адаптив */
         @media (max-width: 550px) {
             .container {
-                padding: 30px 20px 40px;
+                padding: 36px 20px 44px;
             }
             h1 {
-                font-size: 38px;
+                font-size: 42px;
             }
             .message-text {
                 font-size: 16px;
@@ -242,9 +254,19 @@
                 top: 15px;
                 left: 15px;
             }
+            .instruction {
+                font-size: 13px;
+                padding: 14px 16px;
+            }
+            .services-note {
+                font-size: 13px;
+            }
+            .contact-btn {
+                padding: 10px 22px;
+                font-size: 14px;
+            }
         }
 
-        /* лёгкая анимация появления */
         @keyframes gentleFade {
             0% { opacity: 0; transform: translateY(6px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -256,40 +278,37 @@
 </head>
 <body>
 
-<!-- Кнопка возврата на главную (круглая, фиксированная) -->
 <a href="index.html" class="back-home" title="На главную">←</a>
 
 <div class="container">
+    <div class="star">✨</div>
     <h1>ЭНЕРГИЯ ДНЯ</h1>
-    <div class="subtitle">короткое послание на сегодня</div>
-    <div class="line"></div>
+
+    <div class="instruction">
+        Перед тем, как нажать кнопку внизу,<br>задайте себе вопрос:<br>«Что мне нужно знать сегодня?»
+    </div>
 
     <button class="primary-btn" id="getEnergyBtn">УЗНАТЬ</button>
 
     <div class="message-area" id="messageArea">
         <div class="message-text" id="messageText">
-            Нажмите «Узнать»,<br>чтобы получить послание.
+            ✨
         </div>
     </div>
 
-    <button class="secondary-btn" id="againBtn">ЕЩЁ РАЗ</button>
-
-    <!-- Дополнительная ссылка возврата внизу -->
     <a href="index.html" class="back-home-bottom">← На главную</a>
 
-    <!-- Блок об услугах (ненавязчиво) -->
     <div class="services-note">
-        🌙 Если нужен личный прогноз — я помогаю смотреть вперёд. 
-        Напишите мне, метод не важен, важен результат.
+        <span>🌙 Хотите разобрать свою ситуацию, получить прогноз?<br>Сделаем это на личной консультации.</span>
     </div>
 
-    <div class="footer-note">✨ Светлый провидец ✨</div>
+    <!-- Кнопка "Написать Анне" -->
+    <div style="margin-top: 20px;">
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="contact-btn">📩 Написать Анне</a>
+    </div>
 </div>
 
 <script>
-    // ============================================================
-    // МАССИВ ПОСЛАНИЙ (22 старших аркана)
-    // ============================================================
     const messages = [
         "Сегодня может потянуть на приключения или спонтанные решения. Возможно желание в чем-то пойти на риск. Помните: оставить контроль и довериться бывает весьма полезно.",
         "День хорош для действий и воплощения идей. Может появиться желание или необходимость показать свои навыки и профессионализм. Полезно вспомнить, чего вы уже достигли. Только избегайте показухи — действуйте по делу.",
@@ -315,22 +334,17 @@
         "Вероятно ощущение, что одна глава подошла к концу и впереди новый уровень. Есть шанс гармонично завершить начатое."
     ];
 
-    // Функция получения случайного послания (ИСПРАВЛЕНА)
     function getRandomMessage() {
         const randomIndex = Math.floor(Math.random() * messages.length);
         return messages[randomIndex];
     }
 
-    // Находим кнопки и поле для текста
     const getEnergyBtn = document.getElementById('getEnergyBtn');
-    const againBtn = document.getElementById('againBtn');
     const messageTextDiv = document.getElementById('messageText');
     const messageArea = document.getElementById('messageArea');
 
-    // Функция показа нового послания
     function showNewMessage() {
         const newMessage = getRandomMessage();
-        // Небольшая анимация
         messageArea.style.animation = 'none';
         messageTextDiv.style.opacity = '0.7';
         setTimeout(() => {
@@ -340,9 +354,7 @@
         }, 80);
     }
 
-    // Назначаем обработчики нажатий (ПРОВЕРЕНО)
     getEnergyBtn.addEventListener('click', showNewMessage);
-    againBtn.addEventListener('click', showNewMessage);
 </script>
 
 </body>
