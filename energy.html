@@ -158,7 +158,7 @@
             min-height: 200px;
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Изменено: выравнивание по левому краю */
+            justify-content: flex-start;
         }
 
         .message-text {
@@ -166,7 +166,7 @@
             line-height: 1.65;
             color: #3A4D3E;
             font-weight: 440;
-            text-align: left; /* Текст слева */
+            text-align: left;
             max-width: 100%;
             margin: 0;
             font-family: 'Raleway', 'Roboto', sans-serif;
@@ -193,7 +193,7 @@
             border-top: 1px solid rgba(130, 110, 150, 0.25);
             font-size: 14px;
             color: #6A7B6E;
-            text-align: center;
+            text-align: left; /* Изменено с center на left */
             line-height: 1.5;
         }
 
@@ -202,6 +202,8 @@
             background: rgba(210, 200, 225, 0.4);
             padding: 8px 20px;
             border-radius: 60px;
+            text-align: left; /* Добавлено для внутреннего текста */
+            max-width: 100%;
         }
 
         .contact-btn {
@@ -259,6 +261,12 @@
             }
             .services-note {
                 font-size: 13px;
+                text-align: left;
+            }
+            .services-note span {
+                padding: 8px 16px;
+                display: block; /* На мобильных блок занимает всю ширину */
+                width: 100%;
             }
             .contact-btn {
                 padding: 10px 22px;
