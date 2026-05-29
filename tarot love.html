@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Карты судьбы — выберите одну</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none; /* чтобы текст не выделялся при быстрых кликах */
+        }
+
+        body {
+            background: linear-gradient(145deg, #1a472a 0%, #0e2a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            border-radius: 64px;
+            backdrop-filter: blur(2px);
+            padding: 30px 20px 40px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #f9e7c2;
+            text-shadow: 0 4px 8px #00000030;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .sub {
+            text-align: center;
+            color: #dfcca6;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* сетка карт */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        /* стиль карты – рубашка */
+        .card {
+            width: 220px;
+            height: 320px;
+            background: repeating-linear-gradient(
+                45deg,
+                #2c2118,
+                #2c2118 15px,
+                #4a3729 15px,
+                #4a3729 30px
+            );
+            border-radius: 18px;
+            box-shadow: 8px 12px 20px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,200,0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            position: relative;
+            border: 2px solid #c9a87b;
+        }
+
+        /* узор рубашки: добавим имитацию карточного орнамента */
+        .card::before {
+            content: "?";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: #ddbb88;
+            opacity: 0.35;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 #2a1e12;
+            font-family: monospace;
+        }
+
+        .card::after {
+            content: "✦";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: #dbb56b;
+            opacity: 0.4;
+        }
+
+        /* эффекты при взаимодействии */
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 12px 18px 28px black;
+            border-color: #efcd91;
+        }
+
+        .card:active {
+            transform: translateY(-5px);
+            transition: 0.05s;
+        }
+
+        /* блок результата */
+        .result-area {
+            background: #1e2a1bd9;
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 25px 20px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #efcd9180;
+            transition: all 0.3s;
+        }
+
+        .result-text {
+            font-size: 1.5rem;
+            color: #fef0cf;
+            font-weight: 500;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: break-word;
+        }
+
+        .placeholder-message {
+            opacity: 0.7;
+            font-size: 1.2rem;
+            color: #ccbb99;
+            font-style: normal;
+        }
+
+        button.reset-btn {
+            background: #3b2c1f;
+            border: none;
+            color: #ffefcf;
+            font-size: 1rem;
+            padding: 8px 24px;
+            border-radius: 60px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px black;
+        }
+
+        button.reset-btn:hover {
+            background: #5e4532;
+            transform: scale(1.02);
+        }
+
+        /* адаптивность */
+        @media (max-width: 700px) {
+            .card {
+                width: 150px;
+                height: 220px;
+            }
+            .card::before {
+                font-size: 2.5rem;
+            }
+            .result-text {
+                font-size: 1.2rem;
+            }
+            .cards-grid {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>✧ Три пути ✧</h1>
+    <div class="sub">Коснитесь карты — она раскроет послание</div>
+
+    <div class="cards-grid">
+        <div class="card" data-index="0"></div>
+        <div class="card" data-index="1"></div>
+        <div class="card" data-index="2"></div>
+    </div>
+
+    <div class="result-area">
+        <div class="result-text" id="resultMessage">
+            <span class="placeholder-message">❖ Тишина карт ждёт твоего прикосновения ❖</span>
+        </div>
+        <button class="reset-btn" id="resetBtn">⟳ Забрать ответ и вернуть карты</button>
+    </div>
+</div>
+
+<script>
+    // Три ответа-интерпретации, без названий карт. Каждая своя уникальная фраза.
+    // Здесь полная свобода: мистические намёки, советы, образы.
+    const interpretations = [
+        "Время отпустить прошлое — оно уже сыграло свою роль. Новый цикл стучится в дверь.",
+        "Прислушайся к знакам за окном. Неожиданный разговор принесёт ясность уже на этой неделе.",
+        "Твоя внутренняя сила сейчас подобна спящему вулкану. Осторожность и решительность будут рядом."
+    ];
+
+    // Состояние: выбрана ли какая-то карта (чтобы нельзя было менять ответ после выбора?)
+    // По условию: пользователь выбирает одну, нажимает на неё, появляется ответ. 
+    // Логично — после выбора карты, клики по другим картам или ничего не делают, или показывают свой ответ.
+    // Чтобы не сбивать с толку, мы можем разрешить кликать на любую карту, и тогда будет ПОКАЗАН ответ именно той карты, 
+    // которую выбрали. Но если пользователь передумал и выбрал другую карту — интерпретация сменится. 
+    // Это вполне логично для интерактива "выбери любую карту". 
+    // Однако автор не хочет показывать, какая карта что значит — разницы нет, все карты одинаковы.
+    // Просто при клике на карту — показывается её зашитый ответ. Никаких названий.
+
+    // Получаем элементы
+    const cards = document.querySelectorAll('.card');
+    const resultDiv = document.getElementById('resultMessage');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Функция показа ответа для конкретной карты
+    function showInterpretation(cardIndex) {
+        const message = interpretations[cardIndex];
+        // убираем плейсхолдер и отображаем послание
+        resultDiv.innerHTML = `<span>✨ ${message} ✨</span>`;
+        // можно добавить лёгкий эффект пульсации (необязательно)
+        resultDiv.style.transform = "scale(1.01)";
+        setTimeout(() => { resultDiv.style.transform = ""; }, 200);
+    }
+
+    // Функция сброса: очищаем ответ и возвращаем нейтральное состояние
+    function resetSelection() {
+        resultDiv.innerHTML = `<span class="placeholder-message">❖ Тишина карт ждёт твоего прикосновения ❖</span>`;
+    }
+
+    // Навешиваем обработчики на каждую карту
+    cards.forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // По клику на карту показываем соответствующую интерпретацию
+            showInterpretation(idx);
+            // Дополнительно: можно добавить лёгкий визуальный отклик на карту (мигание)
+            card.style.transition = "0.1s";
+            card.style.filter = "brightness(1.2)";
+            setTimeout(() => { card.style.filter = ""; }, 150);
+        });
+    });
+
+    // Кнопка сброса — убирает показанный ответ, но карты остаются активными 
+    // (можно снова выбрать любую, ответ снова появится)
+    resetBtn.addEventListener('click', () => {
+        resetSelection();
+    });
+
+    // Дополнительно: если зажать shift + клик на карту — ничего лишнего, просто интерпретация.
+    // Всё строго по заданию: 3 карты, рубашка, выбор одной (или нескольких — интерактив позволяет),
+    // но так как ответ появляется мгновенно — пользователь увидит предсказание.
+    // Никаких названий карт, только интерпретация.
+</script>
+</body>
+</html>
