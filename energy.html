@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Энергия дня — Анна</title>
+    <title>Карта дня — Анна</title>
     <style>
         * {
             margin: 0;
@@ -106,14 +106,14 @@
             font-size: 18px;
             font-weight: 550;
             font-family: 'Inter', sans-serif;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             color: #2C3E2F;
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.25s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
             width: 100%;
-            max-width: 260px;
+            max-width: 300px;
             margin: 0 auto 20px auto;
             display: block;
             animation: softPulse 2.5s infinite;
@@ -222,6 +222,7 @@
             .primary-btn {
                 padding: 14px 24px;
                 font-size: 16px;
+                max-width: 260px;
             }
             .back-home {
                 width: 40px;
@@ -253,13 +254,13 @@
 
 <div class="container">
     <div class="name">Анна</div>
-    <div class="oracle-title">Энергия дня</div>
+    <div class="oracle-title">Карта дня</div>
 
     <div class="instruction">
-        Перед тем, как нажать кнопку внизу,<br>задайте себе вопрос:<br>«Что мне нужно знать сегодня?»
+        Нажмите на кнопку внизу, чтобы перетасовать колоду.
     </div>
 
-    <button class="primary-btn" id="getEnergyBtn">УЗНАТЬ</button>
+    <button class="primary-btn" id="getEnergyBtn">Перетасовать колоду</button>
 
     <div class="message-block" id="messageArea">
         <div class="message-text" id="messageText">
