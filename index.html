@@ -83,24 +83,14 @@
             overflow: visible;
         }
 
-        .name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-            font-size: 38px;
-            letter-spacing: -0.01em;
-            margin-bottom: 48px;
-            text-align: center;
-            color: #1F1A12;
-        }
-
         .oracle-title {
             font-family: 'Playfair Display', serif;
             font-weight: 500;
-            font-size: 28px;
+            font-size: 32px;
             letter-spacing: -0.01em;
             margin-bottom: 18px;
             text-align: center;
-            color: #1F1A12;
+            color: #3D2E1D;
         }
 
         .intro-text {
@@ -190,10 +180,11 @@
             background-color: #8E7A89;
         }
 
+        /* Изменённая кнопка «Перейти к услугам» */
         .secondary-btn-sage {
-            background-color: transparent;
+            background-color: rgba(107, 143, 122, 0.1);
             border: 1.5px solid #6B8F7A;
-            color: #6B8F7A;
+            color: #5D7D6B;
             padding: 10px 28px;
             font-size: 16px;
             font-weight: 500;
@@ -206,9 +197,9 @@
         }
 
         .secondary-btn-sage:hover {
-            background-color: #6B8F7A10;
+            background-color: rgba(107, 143, 122, 0.2);
             border-color: #5D7D6B;
-            color: #5D7D6B;
+            color: #4A6A56;
         }
 
         .other-oracles {
@@ -248,7 +239,7 @@
             width: 22px;
             height: 22px;
             stroke: #6B8F7A;
-            stroke-width: 1.7;
+            stroke-width: 1.4;
             fill: none;
             transition: stroke 0.2s;
         }
@@ -279,12 +270,8 @@
                 padding: 20px 16px 40px;
                 margin: 20px auto;
             }
-            .name {
-                font-size: 32px;
-                margin-bottom: 24px;
-            }
             .oracle-title {
-                font-size: 24px;
+                font-size: 28px;
                 margin-bottom: 12px;
             }
             .intro-text {
@@ -343,10 +330,8 @@
 </head>
 <body>
 <div class="container">
-    <div class="name">Анна</div>
-
     <div class="oracle-title">Послание Вселенной</div>
-    <div class="intro-text">Что вам важно сейчас услышать? Доверьтесь тому, что придёт.</div>
+    <div class="intro-text">Что вам важно сейчас услышать? Доверьтесь тому, что придёт</div>
 
     <button class="primary-btn" id="getMessageBtn">Получить послание</button>
 
@@ -356,7 +341,7 @@
     </div>
 
     <div class="consult-block">
-        <div class="consult-text">Если вы хотите глубже разобрать свою ситуацию или получить прогноз — можем сделать это на личной консультации.</div>
+        <div class="consult-text">Если вы хотите глубже разобрать свою ситуацию или получить прогноз — можем сделать это на личной консультации</div>
         <a href="https://t.me/Anna_prognoz" class="secondary-btn-lilac" target="_blank">Написать Анне</a>
     </div>
 
