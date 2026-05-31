@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Анна — Услуги и стоимость</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100%;
+            height: auto;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2C241A;
+            line-height: 1.5;
+            padding: 0 16px;
+            position: relative;
+            background-color: #E3D5BC;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                repeating-linear-gradient(120deg, 
+                    rgba(190, 165, 130, 0.08) 0px, 
+                    rgba(190, 165, 130, 0.08) 1px, 
+                    transparent 1px, 
+                    transparent 80px),
+                repeating-linear-gradient(240deg, 
+                    rgba(210, 185, 145, 0.07) 0px, 
+                    rgba(210, 185, 145, 0.07) 1px, 
+                    transparent 1px, 
+                    transparent 100px),
+                repeating-linear-gradient(15deg, 
+                    rgba(170, 140, 105, 0.06) 0px, 
+                    rgba(170, 140, 105, 0.06) 1px, 
+                    transparent 1px, 
+                    transparent 120px),
+                radial-gradient(ellipse at 25% 40%, rgba(200, 175, 140, 0.12) 0%, transparent 45%),
+                radial-gradient(ellipse at 75% 65%, rgba(180, 150, 115, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 45% 85%, rgba(195, 170, 135, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 88% 15%, rgba(210, 185, 150, 0.1) 0%, transparent 55%),
+                repeating-radial-gradient(circle at 50% 50%, rgba(130, 100, 70, 0.03) 0px, rgba(130, 100, 70, 0.03) 1px, transparent 1px, transparent 6px);
+            background-blend-mode: overlay;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            box-shadow: inset 0 0 140px rgba(100, 75, 50, 0.2);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(248, 240, 225, 0.7);
+            backdrop-filter: blur(1px);
+            border-radius: 48px;
+            overflow: visible;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6B8F7A;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .home-link:hover {
+            color: #A28F9D;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 500;
+            text-align: center;
+            color: #3D2E1D;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background-color: rgba(255, 252, 242, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            margin-bottom: 20px;
+            border: 1px solid #E3D2B5;
+            transition: all 0.2s;
+        }
+        .service-card:hover {
+            background-color: rgba(255, 252, 242, 0.85);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #3D2E1D;
+        }
+        .service-price {
+            font-size: 20px;
+            font-weight: 500;
+            color: #6B8F7A;
+            white-space: nowrap;
+        }
+        .toggle-icon {
+            font-size: 24px;
+            font-weight: 400;
+            color: #A28F9D;
+            transition: transform 0.2s;
+            margin-left: 12px;
+        }
+
+        .service-desc {
+            padding: 0 24px 20px 24px;
+            border-top: 1px solid #E3D2B5;
+            margin-top: 0;
+            display: none;
+            font-size: 15px;
+            color: #4E3E2C;
+            line-height: 1.5;
+        }
+        .service-desc p {
+            margin: 12px 0 0 0;
+        }
+        .service-desc p:first-child {
+            margin-top: 16px;
+        }
+        .service-desc p:last-child {
+            margin-bottom: 4px;
+        }
+
+        .consult-block {
+            text-align: center;
+            margin: 48px 0 32px;
+        }
+        .consult-text {
+            font-size: 16px;
+            color: #3D2E1D;
+            margin-bottom: 16px;
+        }
+        .telegram-btn {
+            background-color: #A28F9D;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .telegram-btn:hover {
+            background-color: #8E7A89;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 24px;
+        }
+        .back-link {
+            color: #6B8F7A;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px dashed #6B8F7A;
+            padding-bottom: 2px;
+        }
+        .back-link:hover {
+            color: #A28F9D;
+            border-bottom-color: #A28F9D;
+        }
+
+        @media (max-width: 560px) {
+            .container { padding: 24px 16px 40px; }
+            .page-title { font-size: 28px; margin-bottom: 24px; }
+            .service-header { padding: 16px 20px; flex-wrap: wrap; }
+            .service-title { font-size: 18px; }
+            .service-price { font-size: 18px; }
+            .service-desc { padding: 0 20px 16px 20px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="https://annaorakul.github.io/oracle/" class="home-link">← На главную</a>
+
+    <div class="page-title">Услуги и стоимость</div>
+
+    <!-- Услуга 1 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Расклад на месяц (Ленорман)</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">22 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Прогноз по событиям в отношениях, работе, финансах на ближайший месяц. Можно с любого дня месяца на 30 дней. Нужны: имя, дата рождения, фото.</p>
+        </div>
+    </div>
+
+    <!-- Услуга 2 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Диагностика отношений (Ленорман / Таро)</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">32 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Анализ текущей ситуации, прогноз / перспектива / что поможет отношениям (в зависимости от расклада).</p>
+            <p>Для тех, кто только начинает отношения, либо в паре возникли сложности, либо вы оказались в любовном треугольнике. Также для тех, у кого ещё нет отношений, но хочется это изменить.</p>
+            <p>Нужны: имена, даты рождения, фото (Ленорман); имена (по желанию — дата рождения, фото) для Таро.</p>
+        </div>
+    </div>
+
+    <!-- Услуга 3 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Финансовый разбор (нумерология)</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">55 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Где самые большие деньги, что ограничивает приход финансов, что нужно делать, чтобы привлечь финансы, денежные сферы.</p>
+            <p>Нужны: дата рождения.</p>
+        </div>
+    </div>
+
+    <!-- Услуга 4 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Прогноз на год (нумерология)</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">66 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Прогноз по месяцам, ключевые тенденции по сферам; практические наполняющие действия, хобби, цвет года и цвета месяца (и где их применять).</p>
+            <p>Нужны: дата рождения.</p>
+        </div>
+    </div>
+
+    <!-- Услуга 5 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Прогноз на год (астрология)</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">75 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Планирование по периодам, события года, задачи и возможности, поддерживающие практики.</p>
+            <p>Нужны: дата, время и место рождения.</p>
+        </div>
+    </div>
+
+    <!-- Услуга 6 -->
+    <div class="service-card">
+        <div class="service-header" onclick="toggleDesc(this)">
+            <span class="service-title">Прогноз на год (Ленорман) + гармонизация</span>
+            <span style="display: flex; align-items: baseline; gap: 8px;">
+                <span class="service-price">85 BYN</span>
+                <span class="toggle-icon">+</span>
+            </span>
+        </div>
+        <div class="service-desc">
+            <p>Основные события по сферам (отношения, работа, финансы), дополнительная информация индивидуально по ситуации + ритуал на смягчение событий.</p>
+            <p>Нужны: имя, дата рождения, фото.</p>
+        </div>
+    </div>
+
+    <div class="consult-block">
+        <div class="consult-text">Уточнить детали можно в личных сообщениях</div>
+        <a href="https://t.me/Anna_prognoz" class="telegram-btn" target="_blank">Написать Анне</a>
+    </div>
+
+    <div class="back-home">
+        <a href="https://annaorakul.github.io/oracle/" class="back-link">Вернуться на главную</a>
+    </div>
+</div>
+
+<script>
+    function toggleDesc(headerElement) {
+        const card = headerElement.closest('.service-card');
+        const desc = card.querySelector('.service-desc');
+        const icon = headerElement.querySelector('.toggle-icon');
+        
+        if (desc.style.display === 'none' || desc.style.display === '') {
+            desc.style.display = 'block';
+            if (icon) icon.textContent = '−';
+        } else {
+            desc.style.display = 'none';
+            if (icon) icon.textContent = '+';
+        }
+    }
+</script>
+</body>
+</html>
