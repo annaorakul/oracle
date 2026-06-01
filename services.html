@@ -83,7 +83,6 @@
             overflow: visible;
         }
 
-        /* Верхняя ссылка — только стрелка */
         .home-link {
             display: inline-block;
             margin-bottom: 32px;
@@ -146,7 +145,6 @@
             font-size: 24px;
             font-weight: 400;
             color: #A28F9D;
-            transition: transform 0.2s;
             margin-left: 12px;
         }
 
@@ -213,13 +211,12 @@
             border-bottom-color: #A28F9D;
         }
 
-        /* Мобильная версия с увеличенным нижним отступом */
         @media (max-width: 560px) {
             body {
                 padding: 20px 12px 0 12px;
             }
             .container {
-                padding: 24px 16px 64px;  /* нижний отступ увеличен */
+                padding: 24px 16px 64px;
             }
             .page-title {
                 font-size: 28px;
@@ -252,7 +249,6 @@
 
     <div class="page-title">Услуги и стоимость</div>
 
-    <!-- Услуга 1 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Расклад на месяц (Ленорман)</span>
@@ -266,7 +262,6 @@
         </div>
     </div>
 
-    <!-- Услуга 2 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Диагностика отношений (Ленорман / Таро)</span>
@@ -282,7 +277,6 @@
         </div>
     </div>
 
-    <!-- Услуга 3 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Финансовый разбор (нумерология)</span>
@@ -297,7 +291,6 @@
         </div>
     </div>
 
-    <!-- Услуга 4 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Прогноз на год (нумерология)</span>
@@ -312,7 +305,6 @@
         </div>
     </div>
 
-    <!-- Услуга 5 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Прогноз на год (астрология)</span>
@@ -327,7 +319,6 @@
         </div>
     </div>
 
-    <!-- Услуга 6 -->
     <div class="service-card">
         <div class="service-header" onclick="toggleDesc(this)">
             <span class="service-title">Прогноз на год (Ленорман) + гармонизация</span>
@@ -351,6 +342,8 @@
         <a href="https://annaorakul.github.io/oracle/" class="back-link">Вернуться на главную</a>
     </div>
 </div>
+<!-- Дополнительный отступ внизу для воздуха на телефоне -->
+<div style="height: 35px;"></div>
 
 <script>
     function toggleDesc(headerElement) {
