@@ -83,14 +83,16 @@
             overflow: visible;
         }
 
+        /* Верхняя ссылка — только стрелка */
         .home-link {
             display: inline-block;
             margin-bottom: 32px;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 28px;
+            font-weight: 400;
             color: #6B8F7A;
             text-decoration: none;
             transition: color 0.2s;
+            line-height: 1;
         }
         .home-link:hover {
             color: #A28F9D;
@@ -211,19 +213,42 @@
             border-bottom-color: #A28F9D;
         }
 
+        /* Мобильная версия с увеличенным нижним отступом */
         @media (max-width: 560px) {
-            .container { padding: 24px 16px 40px; }
-            .page-title { font-size: 28px; margin-bottom: 24px; }
-            .service-header { padding: 16px 20px; flex-wrap: wrap; }
-            .service-title { font-size: 18px; }
-            .service-price { font-size: 18px; }
-            .service-desc { padding: 0 20px 16px 20px; font-size: 14px; }
+            body {
+                padding: 20px 12px 0 12px;
+            }
+            .container {
+                padding: 24px 16px 64px;  /* нижний отступ увеличен */
+            }
+            .page-title {
+                font-size: 28px;
+                margin-bottom: 24px;
+            }
+            .home-link {
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+            .service-header {
+                padding: 16px 20px;
+                flex-wrap: wrap;
+            }
+            .service-title {
+                font-size: 18px;
+            }
+            .service-price {
+                font-size: 18px;
+            }
+            .service-desc {
+                padding: 0 20px 16px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <a href="https://annaorakul.github.io/oracle/" class="home-link">← На главную</a>
+    <a href="https://annaorakul.github.io/oracle/" class="home-link">←</a>
 
     <div class="page-title">Услуги и стоимость</div>
 
@@ -251,7 +276,7 @@
             </span>
         </div>
         <div class="service-desc">
-            <p>Анализ текущей ситуации, прогноз / перспектива / что поможет отношениям (в зависимости от расклада).</p>
+            <p>Анализ текущей ситуации, прогноз / перспектива (в зависимости от расклада).</p>
             <p>Для тех, кто только начинает отношения, либо в паре возникли сложности, либо вы оказались в любовном треугольнике. Также для тех, у кого ещё нет отношений, но хочется это изменить.</p>
             <p>Нужны: имена, даты рождения, фото (Ленорман); имена (по желанию — дата рождения, фото) для Таро.</p>
         </div>
