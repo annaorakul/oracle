@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Настроение дня — Анна</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #E9E6F0 0%, #D8DCE6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', 'Raleway', 'Roboto', sans-serif;
+            padding: 20px;
+            position: relative;
+            animation: slowSky 12s ease-in-out infinite;
+        }
+
+        @keyframes slowSky {
+            0% { background: #E9E6F0; }
+            50% { background: #E0E2EC; }
+            100% { background: #E9E6F0; }
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(200, 190, 210, 0.7);
+            backdrop-filter: blur(4px);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: 400;
+            color: #4A5D4E;
+            transition: all 0.25s ease;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(120, 100, 130, 0.2);
+        }
+
+        .back-home:hover {
+            background: #C5BDD4;
+            transform: scale(1.05);
+            color: #2C3E2F;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(250, 248, 255, 0.85);
+            backdrop-filter: blur(1px);
+            border-radius: 56px;
+            padding: 48px 32px 56px;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(160, 140, 180, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .oracle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: #3A4D3E;
+            margin-bottom: 32px;
+        }
+
+        .instruction {
+            font-size: 15px;
+            color: #3A4D3E;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-style: normal;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-btn {
+            background: #6B8F7A;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 550;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px auto;
+            display: block;
+            animation: softPulse 2.5s infinite;
+        }
+
+        @keyframes softPulse {
+            0% { box-shadow: 0 0 0 0 rgba(107, 143, 122, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(107, 143, 122, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(107, 143, 122, 0); }
+        }
+
+        .primary-btn:hover {
+            background: #5D7D6B;
+            transform: scale(1.02);
+        }
+
+        .primary-btn:active {
+            transform: scale(0.98);
+        }
+
+        .message-block {
+            background: rgba(240, 235, 250, 0.7);
+            border-radius: 40px;
+            padding: 32px 28px;
+            margin: 20px 0 28px;
+            border: 1px solid rgba(150, 130, 170, 0.3);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-text {
+            font-size: 18px;
+            line-height: 1.65;
+            color: #3A4D3E;
+            font-weight: 440;
+            text-align: left;
+            max-width: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .back-home-bottom {
+            margin-top: 20px;
+            display: block;
+            font-size: 13px;
+            color: #7E8F82;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home-bottom:hover {
+            color: #4A5D4E;
+            text-decoration: underline;
+        }
+
+        .consult-block {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(130, 110, 150, 0.25);
+            text-align: center;
+        }
+
+        .consult-text {
+            font-size: 14px;
+            color: #3A4D3E;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .secondary-btn-lilac {
+            background-color: #A28F9D;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 28px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn-lilac:hover {
+            background-color: #8E7A89;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 36px 20px 44px;
+            }
+            .oracle-title {
+                font-size: 26px;
+            }
+            .message-text {
+                font-size: 16px;
+            }
+            .primary-btn {
+                padding: 14px 24px;
+                font-size: 16px;
+                max-width: 280px;
+            }
+            .back-home {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+                top: 15px;
+                left: 15px;
+            }
+            .instruction {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+        }
+
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .message-block {
+            animation: gentleFade 0.35s ease-out;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="index.html" class="back-home" title="На главную">←</a>
+
+<div class="container">
+    <div class="oracle-title">Настроение дня</div>
+
+    <div class="instruction">
+        Нажмите на кнопку внизу, когда почувствуете готовность
+    </div>
+
+    <button class="primary-btn" id="getMessageBtn">Узнать</button>
+
+    <div class="message-block" id="messageArea">
+        <div class="message-text" id="messageText"></div>
+    </div>
+
+    <a href="index.html" class="back-home-bottom">← На главную</a>
+
+    <div class="consult-block">
+        <div class="consult-text">
+            Если хотите разобрать свою ситуацию или получить прогноз — это можно сделать на личной консультации
+        </div>
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="secondary-btn-lilac">Написать Анне</a>
+    </div>
+</div>
+
+<script>
+    const messages = [
+        "Сегодня может потянуть на приключения или спонтанные решения. Возможно желание в чем-то пойти на риск. Помните: оставить контроль и довериться бывает весьма полезно.",
+        "День хорош для действий и воплощения идей. Может появиться желание или необходимость показать свои навыки и профессионализм. Полезно вспомнить, чего вы уже достигли. Только избегайте показухи — действуйте по делу.",
+        "Если захочется побыть в тишине — не отказывайте себе в этом. Полезным окажется найти время для медитации. Прислушайтесь к своей интуиции. Не торопитесь в действиях. Сегодня найти ответы внутри себя окажется проще.",
+        "Возможно желание заботиться о ком-то или творить что-то новое. День располагает к красоте — добавьте красоты в мир или найдите время для ухода за собой. Хорошо проявить любовь и к себе — не только же заботиться о других.",
+        "Может потянуть всё разложить по полочкам, составить план действий. День хорош для структуры и порядка.",
+        "День располагает к учёбе, к тому, чтобы перенять опыт других. Или получить совет от того, кто мудрее. Помните, что важно делиться знаниями и применять их на практике.",
+        "Внутри возможна двойственность, или появится необходимость сделать выбор. День хорош для отношений и страсти, но помните: важно не потерять себя в партнёре.",
+        "День хорош для амбиций и быстрых решений. В движении к своей цели не забывайте наслаждаться процессом.",
+        "Помните, что можно быть разными: сильными, нежными, страстными... Сегодня может хотеться проявить и нежность, и страсть одновременно. Полезно уделить внимание своему телу.",
+        "Может потянуть побыть одному, взять паузу, отстраниться от суеты. День хорош для созерцания, медитации. Важно не уйти в ощущение собственного превосходства над другими.",
+        "Сегодня жизнь может напомнить, что всё меняется. Возможно повторение старого сценария — стоит присмотреться, какой урок ещё не пройден.",
+        "Может возникнуть желание расставить всё по местам и докопаться до истины. День хорош для честных дел и работы с документами. Помните: что отдаёте, то и получите.",
+        "Полезно изменить угол зрения и посмотреть на ситуацию в другом ракурсе. Даже если это окажется неожиданным. Позвольте себе остановиться и дать время всё переосмыслить.",
+        "Сегодня может потянуть что-то закончить, отпустить. Возможно завершение старого этапа. Помните: сопротивление переменам сделает их только болезненнее.",
+        "День располагает к гармонии и балансу. Вы не обязаны быть идеальными, примите себя любыми и всякими. День хорош для объединения.",
+        "Может появиться желание запретного, сильных ощущений или манипуляции. День показывает слабые места. Позвольте себе «неправильное» желание, но не дайте зависимости разрушить себя.",
+        "Вероятно что-то неожиданное, что нарушит планы. Помните: предусмотреть всё равно всё не получится. Иногда старое должно разрушиться, чтобы освободить место для нового.",
+        "Сегодня может появиться надежда или желание помечтать. День хорош для восстановления веры в будущее. Полезно озвучить или прописать свои желания.",
+        "Может потянуть в глубокие переживания и страхи. Не убегайте от них — иногда полезно признать свой страх, чтобы потом увидеть свет.",
+        "Порадуйтесь жизни, дарите своё тепло другим. День хорош для праздника и удовольствия. Только не прячьтесь в радости от важных дел.",
+        "Сегодня может потянуть услышать себя, своё настоящее желание. Возможно желание пойти своим путём, даже если придётся всё начать заново. День хорош, чтобы перестать судить себя и других.",
+        "Вероятно ощущение, что одна глава подошла к концу и впереди новый уровень. Есть шанс гармонично завершить начатое."
+    ];
+
+    function getRandomMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    const getMessageBtn = document.getElementById('getMessageBtn');
+    const messageTextDiv = document.getElementById('messageText');
+    const messageBlock = document.getElementById('messageArea');
+
+    function showNewMessage() {
+        const newMessage = getRandomMessage();
+        messageBlock.style.animation = 'none';
+        messageTextDiv.style.opacity = '0.7';
+        setTimeout(() => {
+            messageTextDiv.innerText = newMessage;
+            messageTextDiv.style.opacity = '1';
+            messageBlock.style.animation = 'gentleFade 0.35s ease-out';
+        }, 80);
+    }
+
+    getMessageBtn.addEventListener('click', showNewMessage);
+</script>
+
+</body>
+</html>
