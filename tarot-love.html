@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Что мешает личной жизни — Таро</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0b132b, #07101f);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            padding: 24px 16px;
+            position: relative;
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(200, 190, 210, 0.7);
+            backdrop-filter: blur(4px);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: 400;
+            color: #4A5D4E;
+            transition: all 0.25s ease;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(120, 100, 130, 0.2);
+        }
+
+        .back-home:hover {
+            background: #C5BDD4;
+            transform: scale(1.05);
+            color: #2C3E2F;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(10, 20, 35, 0.55);
+            backdrop-filter: blur(3px);
+            border-radius: 56px;
+            padding: 48px 32px 56px;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 180, 140, 0.2);
+            text-align: center;
+        }
+
+        .oracle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #f3e7c0;
+            margin-bottom: 24px;
+        }
+
+        .instruction {
+            font-size: 15px;
+            color: #bcc9e6;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-style: normal;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .primary-btn, .secondary-btn {
+            background: #6B8F7A;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 550;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .primary-btn:hover, .secondary-btn:hover {
+            background: #5A7D66;
+            transform: scale(1.02);
+        }
+
+        .primary-btn:active, .secondary-btn:active {
+            transform: scale(0.98);
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin: 40px 0;
+        }
+
+        .card {
+            width: 210px;
+            height: 310px;
+            background: radial-gradient(ellipse at 30% 40%, #0a1030, #03061a);
+            border-radius: 18px;
+            box-shadow: 8px 12px 20px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            position: relative;
+            border: 1px solid #5c6e91;
+        }
+
+        .card .star-tl {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 1.2rem;
+            color: #f3e7c0;
+            opacity: 0.6;
+        }
+        .card .star-tr {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 1.2rem;
+            color: #f3e7c0;
+            opacity: 0.6;
+        }
+        .card .star-bl {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            font-size: 1.2rem;
+            color: #f3e7c0;
+            opacity: 0.6;
+        }
+        .card .star-br {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            font-size: 1.2rem;
+            color: #f3e7c0;
+            opacity: 0.6;
+        }
+        .card .center-star {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: #f3e7c0;
+            opacity: 0.25;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 18px 28px black;
+            border-color: #dbcd9f;
+        }
+
+        .card:active {
+            transform: translateY(-3px);
+        }
+
+        .result-area {
+            background: rgba(8, 18, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 32px 28px;
+            margin: 20px 0 28px;
+            border: 1px solid #506280;
+            min-height: 150px;
+            animation: gentleFade 0.35s ease-out;
+            text-align: left;
+        }
+
+        .result-text {
+            font-size: 1.3rem;
+            color: #fbf5e3;
+            line-height: 1.55;
+            font-weight: 440;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+        }
+
+        .result-note {
+            font-size: 13px;
+            color: #bcc9e6;
+            margin-top: 24px;
+            border-top: 1px solid rgba(200, 180, 140, 0.2);
+            padding-top: 18px;
+            text-align: left;
+        }
+
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .consult-block {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(200, 180, 140, 0.3);
+            text-align: center;
+        }
+
+        .consult-text {
+            font-size: 14px;
+            color: #cbd6ed;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .back-home-bottom {
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 13px;
+            color: #bcc9e6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home-bottom:hover {
+            color: #f3e7c0;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .card {
+                width: 150px;
+                height: 220px;
+            }
+            .card .star-tl, .card .star-tr, .card .star-bl, .card .star-br {
+                font-size: 0.9rem;
+            }
+            .card .center-star {
+                font-size: 1.8rem;
+            }
+            .oracle-title {
+                font-size: 28px;
+                max-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+                word-break: normal;
+                white-space: normal;
+            }
+            .result-text {
+                font-size: 1.1rem;
+                text-align: left;
+            }
+            .cards-grid {
+                gap: 15px;
+            }
+            .instruction {
+                text-align: left;
+            }
+            .result-area {
+                text-align: left;
+            }
+            .result-note {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .card {
+                width: 110px;
+                height: 160px;
+            }
+            .card .star-tl, .card .star-tr, .card .star-bl, .card .star-br {
+                font-size: 0.7rem;
+                top: 8px;
+                bottom: 8px;
+                left: 8px;
+                right: 8px;
+            }
+            .card .center-star {
+                font-size: 1.4rem;
+            }
+            .container {
+                padding: 36px 20px 44px;
+            }
+            .primary-btn, .secondary-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+                max-width: 280px;
+            }
+            .oracle-title {
+                font-size: 24px;
+                max-width: 240px;
+            }
+            .result-text {
+                text-align: left;
+            }
+            .result-note {
+                text-align: left;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="https://annaorakul.github.io/oracle/" class="back-home" title="На главную">←</a>
+
+<div class="container">
+    <div class="oracle-title">Что мешает личной жизни?</div>
+
+    <div class="instruction">
+        Задайте себе этот вопрос. Вы можете сразу выбрать одну карту. Либо тасовать колоду, пока не возникнет желание сделать выбор.
+    </div>
+
+    <div class="toolbar">
+        <button class="primary-btn" id="shuffleBtn">⟳ Перетасовать колоду</button>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card" data-index="0">
+            <div class="star-tl">✧</div><div class="star-tr">✧</div>
+            <div class="star-bl">✧</div><div class="star-br">✧</div>
+            <div class="center-star">✧</div>
+        </div>
+        <div class="card" data-index="1">
+            <div class="star-tl">✧</div><div class="star-tr">✧</div>
+            <div class="star-bl">✧</div><div class="star-br">✧</div>
+            <div class="center-star">✧</div>
+        </div>
+        <div class="card" data-index="2">
+            <div class="star-tl">✧</div><div class="star-tr">✧</div>
+            <div class="star-bl">✧</div><div class="star-br">✧</div>
+            <div class="center-star">✧</div>
+        </div>
+    </div>
+
+    <div class="result-area">
+        <div class="result-text" id="resultMessage"></div>
+        <div id="resultNote" class="result-note" style="display: none;">
+            В ответе перечислены возможные причины. Не всё может быть про вас. Возможно, подойдёт что-то одно — или несколько.
+        </div>
+    </div>
+
+    <a href="https://annaorakul.github.io/oracle/" class="back-home-bottom">← На главную</a>
+
+    <div class="consult-block">
+        <div class="consult-text">
+            Если хотите разобрать свою ситуацию или получить прогноз — это можно сделать на личной консультации.
+        </div>
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="secondary-btn">Написать Анне</a>
+    </div>
+</div>
+
+<script>
+    const allMeanings = [
+        "Вы инфантильны, у вас семь пятниц на неделе. Вы находитесь в вечном поиске и несерьёзно относитесь к жизни, к отношениям, к людям. Вам сложно удержаться на одном месте и рядом с одним человеком — душа требует новизны. Также возможно, что мешает наличие ребёнка или ваше отношение к детям в целом.",
+        "Если вы женщина: вы слишком активны, в вас много мужских энергий, вы слишком много думаете о том, как произвести впечатление. Есть конкретный мужчина, который ставит вам палки в колёса. Ваш образ умницы и красавицы отпугивает кавалеров. Если вы мужчина: вам мешают эгоцентризм, навязчивость, соперник или конкурент. Вы хотите не отношений, а признания.",
+        "У вас пассивная жизненная позиция, чувства и эмоции подавляются. Вы кажетесь холодной и незаинтересованной. Также возможно магическое воздействие.",
+        "Вы слишком любите себя, самодостаточны, смотрите на людей сверху вниз. Возможно, дело в отношениях с матерью или в сопернице. Если вы мужчина: у вас в голове слишком идеальный образ женщины.",
+        "Вы привыкли всё контролировать, у вас неромантичный характер, вы пытаетесь подавлять всё и всех. Если вы женщина: в вас много мужских энергий. Если вы мужчина: вы находитесь в пассивной позиции.",
+        "Мешают семья или семейные традиции. Вы слишком увлечены обучением — «горе от ума». Также возможно вмешательство третьих лиц, необходимость пройти жизненные уроки. Или вы уже женаты / замужем.",
+        "Потому что у вас уже есть партнёр, или слишком активная социальная жизнь. Вы не можете выбрать между вариантами и поддаётесь соблазнам.",
+        "Сейчас у вас другие приоритеты. Вам важнее карьерные или личные цели. У вас слишком много амбиций, завышенная самооценка, постоянные переезды.",
+        "У вас повышенная эмоциональность, вам сложно быть в гармонии с партнёром — всё время хочется конкурировать, спорить, подчинять. Слишком высокое либидо. Душа и тело в конфликте.",
+        "Аскетичный образ жизни, вы любите одиночество, находитесь в духовном поиске. Возможно, дело в возрасте.",
+        "Вы повторяете одни и те же ошибки. Что-то большее вмешивается в ход событий.",
+        "Вы слишком зациклены на балансе «брать — давать». Вам сложно с романтикой, на всё смотрите аналитически. Возможно, вы уже женаты / замужем.",
+        "У вас тип жертвы. Вам в какой-то степени нравится страдать от одиночества. У вас слишком специфические взгляды на отношения. Возможно, вы находитесь в созависимых отношениях.",
+        "Вы на пороге трансформации — вы меняетесь, и ваши взгляды меняются. Также вы можете быть роковым человеком: вы слишком сильно влияете на окружение, и люди подсознательно вас сторонятся.",
+        "Вас всё устраивает. Вам хорошо и комфортно в сложившейся ситуации. Вы застряли в зоне комфорта. Также возможно низкое либидо.",
+        "Вы пытаетесь манипулировать или становитесь жертвой манипуляторов. Возможно, есть травмы на сексуальной почве, магическое влияние или внутренние конфликты.",
+        "Низкая самооценка, какая-то травма, взрывной характер, желание скандалить, истеричность. Возможно, из-за проблем со здоровьем.",
+        "Вы всё время живёте мыслями о будущем: «вот похудею — пойду на свидание», «вот заработаю денег — тогда зарегистрируюсь на сайте». Также вы можете быть хорошим другом, но очень холодным в плане отношений.",
+        "Психические расстройства, страхи, травма, зависимости, магическое воздействие.",
+        "Вы ещё не повзрослели, слишком много инфантильных проявлений, вы слишком эгоцентричны. Или дело в ребёнке.",
+        "Родовая карма, скелеты в шкафах. Вы не можете выделиться из толпы. Вы заняты спасением мира. Вы ожидаете, что старые отношения восстанут из пепла.",
+        "Вы кажетесь другим непонятным человеком, словно иностранец. Из-за слишком явно выставленных границ.",
+        "Много мужских энергий. Есть конкретный мужчина, который мешает построению личной жизни.",
+        "Из-за мужских энергий. Вы слишком ловко управляете своими эмоциями, и вам сложно влюбиться. Также из-за конкретного мужчины.",
+        "Вы холодный, властный человек, не проявляете эмоций, в вас много мужских энергий. Вы слишком умны, хотите подавлять и властвовать, а не любить. Также из-за конкретного мужчины.",
+        "Мужские проявления в характере, большая пассивность, хороший доход, любовь к роскоши, отсутствие инициативы. Также из-за конкретного мужчины, замужества или отца.",
+        "Вы хотите нравиться — и желательно всем вокруг. Вы не хотите строить что-то в паре, вам хочется быть красивой и видеть, как другие впечатляются. Также из-за слишком сильной сексуальности, из-за конкурентки или конкретной женщины.",
+        "Вы не хотите демонстрировать и транслировать свои чувства. Вас устраивает просто любить, не прося ничего взамен. Из-за скромности или конкретной женщины.",
+        "Слишком большое стремление к свободе, невозможность подстраиваться под другого человека. Также мешают интеллект и властность.",
+        "Вы становитесь мамой для мужчин. Или слишком зациклены на деньгах и работе. Также из-за беременности, отношений с матерью или хорошего дохода.",
+        "Вы слишком быстро увлекаетесь и так же быстро остываете. Возможно, вы ведёте себя слишком откровенно. Вы ещё незрелая личность.",
+        "Вы можете быть слишком навязчивым в своих чувствах. Постоянно хотите быть полезным — и это превращается уже во что-то ненормальное.",
+        "Поспешные решения, вы выбираете сложный путь — идти против ветра. Также мешают конфликтность, зависть и уязвимость.",
+        "Там, где другие уже растят детей, вы всё ещё думаете: позвать или не позвать на кофе. Также зацикленность на профессиональном росте.",
+        "Детская позиция по жизни, СДВГ, наличие ребёнка. Вы получаете шанс, но не используете его.",
+        "Детская позиция, влюбчивость, незрелость, постоянное приукрашивание всего. Также из-за ребёнка.",
+        "Вы не способны доверять, видите агрессию и наезды там, где их нет. Вы ревнивый, мнительный, с детской позицией. Постоянно пытаетесь показать, что умнее окружающих. Также из-за ребёнка или учёбы.",
+        "Нет романтики — отношения делятся на полезные и бесполезные. Детская позиция, сосредоточенность на учёбе или работе.",
+        "Слишком много инициативы. Вы постоянно начинаете жизнь с нуля. Зацикленность на сексуальных аспектах.",
+        "Слишком много чувств и эмоций, вы творческая натура. Вы не можете держать эмоции в себе и «душите» любовью своего партнёра.",
+        "Вы слишком холодный, не можете проявлять чувства и любовь.",
+        "На данный момент жизнь предоставляет другие шансы — скорее всего, связанные с профессией или деньгами.",
+        "Вы по жизни не можете определиться. Думаете про два разных жизненных пути. Не умеете замечать ресурс за спиной и всё время в погоне за журавлём в небе.",
+        "Идеальный образ отношений в голове — скорее всего, взятый из фильма или истории друзей. Вы уже в кого-то влюблены и категорически не хотите отпускать эту историю.",
+        "Вы находитесь в отрицании, боитесь действовать — лишь бы не ошибиться. Вы не готовы пускать кого-либо в свою жизнь, боитесь сделать шаг, потому что боитесь ошибок.",
+        "Желание сесть одной попой на все возможные стулья. Из-за измен, из-за двух работ. Вы привыкли всё время проворачивать какие-то схемки.",
+        "У вас есть план на пятилетку, и скорее всего отношения этому плану мешают. Если личной жизни нет — скорее всего, приоритет — карьера.",
+        "Вам хочется вечного праздника и веселья. Из-за подруг или невозможности выбрать.",
+        "Вы разочарованы во всех и во всём. Вы лечите разбитое сердце. Вы слишком реально смотрите на мир и не способны влюбиться.",
+        "Вы пропадаете на работе. Ищете не там, где есть подходящая пара.",
+        "Вы уже в паре. Вы слишком эгоцентричны и не способны долго ни брать, ни отдавать. Вы заняты жизнью и отношениями других людей, а не своими.",
+        "Вы пресытились, разбалованы, вы в состоянии «не хочухи». Вы устали. Вам не надо сейчас.",
+        "Вам надо подумать над своей жизнью. Вы изолируете себя, никуда не ходите, прячетесь от мира.",
+        "Вы домосед. Вам сложно делиться. Вы не хотите развиваться и застряли на одном уровне.",
+        "Слишком много суеты. Не получается строить отношения, потому что хочется соревноваться с каждым потенциальным партнёром.",
+        "Вы слишком зациклены на своих неудачах, не видите перспектив, слишком много думаете о том, что уже не вернуть.",
+        "Вы готовы получать своё любой ценой. Вам сложно даются романтические чувства, вы сильно злитесь.",
+        "Вы проходите мимо шансов и возможностей. Рядом с вами человек, который усугубляет ситуацию. Вы сейчас проходите мимо личной жизни, чтобы потом стало лучше.",
+        "Эгоцентризм, демонстрация своих побед, вы смотрите на других свысока. Вы не заинтересованы в любви — вы заинтересованы в обожании.",
+        "Вы живёте ностальгией. Из-за отсутствия сексуального посыла, из-за детей. Вы стараетесь завоёвывать любовь с помощью подарков.",
+        "Вы в вечном поиске. Всё время что-то ищете. Когда приходит время остепениться — тут же сбегаете.",
+        "Нет чувств и желания любить. Вы смотрите или сверху на всех («я лучше»), или снизу («я не достоин»), или вообще смотрите на чужих партнёров.",
+        "Много хаоса, суеты — мелкие дела забирают кучу времени. На вас обращают внимание партнёры не соответствующего соцстатуса. Вы смотрите на людей с позиции «выше / ниже» и отбиваетесь от всех потенциальных партнеров.",
+        "Вы живёте в своём мире, в своих иллюзиях и фантазиях. Вы ищете идеал и хотите всё и сразу.",
+        "Вы ведёте нечестную игру. И в первую очередь пытаетесь обмануть самого себя. У вас куча сомнений.",
+        "Просто ещё не пришло нужное время. Так бывает: кто-то находит любовь в 15, а кто-то в 60. Наберитесь терпения.",
+        "Вы очень спешите. Переключаетесь с одного на другое.",
+        "Вы сами от неё отказались и пошли в непонятном направлении.",
+        "Вы слишком уязвимы, есть психологические блоки. Вы просто не хотите отношений. Застряли в зоне комфорта.",
+        "Вы заняты на работе. Вы постоянно заняты саморазвитием.",
+        "Вам слишком дорог ваш негативный опыт. Неважно, что происходит, но пессимизм входит первым. Вы устали, у вас нет ресурса на отношения.",
+        "Сердце закрыто. Вечеринки. Нежелание смотреть в будущее.",
+        "Из-за болезни. Из-за слишком сильных переживаний.",
+        "Вы смотрите на всех сверху вниз. Или вы заложник своего статуса, образа или убеждений.",
+        "Вы не знаете, для чего вам отношения.",
+        "Вы уже в паре. Или дело в примере родителей или друзей. У вас идеальный образ в голове.",
+        "Вы не оправились от какой-то травматичной ситуации. Вы раздавлены.",
+        "Из-за членов семьи. Из-за хорошего материального положения."
+    ];
+
+    let currentThree = [];
+    let currentIndices = [];
+
+    const cards = document.querySelectorAll('.card');
+    const resultDiv = document.getElementById('resultMessage');
+    const resultNote = document.getElementById('resultNote');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+
+    function randomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function reshuffleDeck() {
+        const indices = Array.from({ length: allMeanings.length }, (_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = randomInt(i + 1);
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        currentIndices = indices.slice(0, 3);
+        currentThree = currentIndices.map(idx => allMeanings[idx]);
+        
+        resultDiv.innerHTML = '';
+        resultNote.style.display = 'none';
+        
+        cards.forEach(card => {
+            card.style.filter = "brightness(1.2)";
+            setTimeout(() => { if(card) card.style.filter = ""; }, 150);
+        });
+    }
+
+    function showInterpretation(cardIdx) {
+        if (!currentThree.length || currentThree.length !== 3) {
+            reshuffleDeck();
+        }
+        const answer = currentThree[cardIdx];
+        if (answer) {
+            resultDiv.innerHTML = answer;
+            resultNote.style.display = 'block';
+        } else {
+            resultDiv.innerHTML = "Попробуйте перетасовать колоду ещё раз.";
+            resultNote.style.display = 'none';
+        }
+        const area = document.querySelector('.result-area');
+        area.style.animation = 'none';
+        setTimeout(() => area.style.animation = 'gentleFade 0.35s ease-out', 10);
+    }
+
+    function initGame() {
+        reshuffleDeck();
+    }
+
+    cards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+            showInterpretation(idx);
+            card.style.transform = "scale(0.97)";
+            setTimeout(() => { if(card) card.style.transform = ""; }, 120);
+        });
+    });
+
+    shuffleBtn.addEventListener('click', reshuffleDeck);
+    initGame();
+</script>
+</body>
+</html>

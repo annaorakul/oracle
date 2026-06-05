@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Что мешает финансам — Анна</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0F1725, #09101E);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            padding: 24px 16px;
+            position: relative;
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(122, 155, 132, 0.5);
+            backdrop-filter: blur(4px);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: 400;
+            color: #EADBC5;
+            transition: all 0.25s ease;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(234, 219, 197, 0.3);
+        }
+
+        .back-home:hover {
+            background: #7A9B84;
+            transform: scale(1.05);
+            color: #F3E7C0;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(9, 16, 30, 0.55);
+            backdrop-filter: blur(3px);
+            border-radius: 56px;
+            padding: 48px 32px 56px;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(234, 219, 197, 0.2);
+            text-align: center;
+        }
+
+        .oracle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #EADBC5;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .instruction {
+            font-size: 15px;
+            color: #bcc9e6;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .primary-btn, .secondary-btn {
+            background: #7A9B84;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 550;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .primary-btn:hover, .secondary-btn:hover {
+            background: #6A8A74;
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(234, 219, 197, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn:active, .secondary-btn:active {
+            transform: scale(0.98);
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin: 40px 0 16px;
+        }
+
+        .card {
+            width: 210px;
+            height: 310px;
+            background: radial-gradient(ellipse at 30% 40%, #111c2a, #060c18);
+            border-radius: 18px;
+            box-shadow: 8px 12px 20px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            position: relative;
+            border: 1px solid #EADBC5;
+        }
+
+        .card .star-tl {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 1.2rem;
+            color: #A28B5C;
+            opacity: 0.6;
+        }
+        .card .star-tr {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 1.2rem;
+            color: #A28B5C;
+            opacity: 0.6;
+        }
+        .card .star-bl {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            font-size: 1.2rem;
+            color: #A28B5C;
+            opacity: 0.6;
+        }
+        .card .star-br {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            font-size: 1.2rem;
+            color: #A28B5C;
+            opacity: 0.6;
+        }
+        .card .center-coin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: #A28B5C;
+            opacity: 0.3;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 18px 28px black;
+            border-color: #F3E7C0;
+        }
+
+        .card:active {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(234, 219, 197, 0.4);
+        }
+
+        .result-area {
+            background: rgba(8, 18, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 32px 28px;
+            margin: 20px 0 28px;
+            text-align: left;
+            border: 1px solid #7A9B84;
+            min-height: 150px;
+            animation: gentleFade 0.35s ease-out;
+        }
+
+        .result-text {
+            font-size: 1.3rem;
+            color: #fbf5e3;
+            line-height: 1.55;
+            font-weight: 440;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+        }
+
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .consult-block {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(234, 219, 197, 0.2);
+            text-align: center;
+        }
+
+        .consult-text {
+            font-size: 14px;
+            color: #cbd6ed;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .back-home-bottom {
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 13px;
+            color: #bcc9e6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home-bottom:hover {
+            color: #EADBC5;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .instruction {
+                text-align: left;
+            }
+            .consult-text {
+                text-align: left;
+            }
+            .card {
+                width: 150px;
+                height: 220px;
+            }
+            .card .star-tl, .card .star-tr, .card .star-bl, .card .star-br {
+                font-size: 0.9rem;
+            }
+            .card .center-coin {
+                font-size: 1.8rem;
+            }
+            .oracle-title {
+                font-size: 28px;
+            }
+            .result-text {
+                font-size: 1.1rem;
+            }
+            .cards-grid {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 70px 20px 44px;
+            }
+            .card {
+                width: 110px;
+                height: 160px;
+            }
+            .card .star-tl, .card .star-tr, .card .star-bl, .card .star-br {
+                font-size: 0.7rem;
+                top: 8px;
+                bottom: 8px;
+                left: 8px;
+                right: 8px;
+            }
+            .card .center-coin {
+                font-size: 1.4rem;
+            }
+            .primary-btn, .secondary-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+                max-width: 280px;
+            }
+            .oracle-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="https://annaorakul.github.io/oracle/" class="back-home" title="На главную">←</a>
+
+<div class="container">
+    <div class="oracle-title">Что мешает финансам?</div>
+
+    <div class="instruction">
+        Задайте себе этот вопрос. Вы можете сразу выбрать одну карту. Либо тасовать колоду, пока не возникнет желание сделать выбор
+    </div>
+
+    <div class="toolbar">
+        <button class="primary-btn" id="shuffleBtn">⟳ Перетасовать колоду</button>
+    </div>
+
+    <div class="cards-grid">
+        <div class="card" data-index="0">
+            <div class="star-tl">✦</div><div class="star-tr">✦</div>
+            <div class="star-bl">✦</div><div class="star-br">✦</div>
+            <div class="center-coin">●</div>
+        </div>
+        <div class="card" data-index="1">
+            <div class="star-tl">✦</div><div class="star-tr">✦</div>
+            <div class="star-bl">✦</div><div class="star-br">✦</div>
+            <div class="center-coin">●</div>
+        </div>
+        <div class="card" data-index="2">
+            <div class="star-tl">✦</div><div class="star-tr">✦</div>
+            <div class="star-bl">✦</div><div class="star-br">✦</div>
+            <div class="center-coin">●</div>
+        </div>
+    </div>
+
+    <div class="result-area">
+        <div class="result-text" id="resultMessage"></div>
+    </div>
+
+    <a href="https://annaorakul.github.io/oracle/" class="back-home-bottom">← На главную</a>
+
+    <div class="consult-block">
+        <div class="consult-text">
+            Если хотите разобрать свою ситуацию или получить прогноз - это можно сделать на личной консультации
+        </div>
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="secondary-btn">Написать Анне</a>
+    </div>
+</div>
+
+<script>
+    const allMeanings = [
+        "У вас несерьёзное отношение к деньгам. Возможно, подсознательно вы хотите от них избавиться.",
+        "Вам сложно вовремя остановиться — вы постоянно вкладываете заработанное обратно, но не чувствуете удовлетворения.",
+        "Есть тайные влияния: родовые сценарии, магическое воздействие или скрытые факторы. Возможно, вы бездействуете там, где нужно действовать.",
+        "Возможны ограничения через мать или через женские энергии в роду.",
+        "Мешают невыстроенные отношения с отцом или фигурой авторитета. Также вам сложно отпустить контроль, или вы чувствуете пассивность в действиях.",
+        "Влияет родовая и системная история вашего рода. Или вам не хватает нужных знаний.",
+        "Мешает влияние других людей: партнёра, друзей, конкурентов.",
+        "Вам мешает то, что ваши цели недостижимы или слишком абстрактны.",
+        "Вам мешают проблемы телесного характера: болезни, усталость. Тело словно не принимает деньги.",
+        "Вам мешает убеждение, что духовный человек не может быть богатым.",
+        "Вы ощущаете, что всё зависит от судьбы или обстоятельств. Вы не видите своей воли в финансовых вопросах.",
+        "Вам мешает тотальная честность — вы не умеете пользоваться законными возможностями. Также возможен излишний перфекционизм.",
+        "Вы находитесь в позиции жертвы обстоятельств. Не хватает активности.",
+        "Вы боитесь перемен, потому что убеждены — они даются слишком большой ценой. Страх менять работу или сферу.",
+        "Вам мешает то, что вас устраивает то, что есть. Вам не хватает финансовой амбиции.",
+        "Вы готовы — или вынуждены — идти против совести ради денег.",
+        "Вам мешает заниженная самооценка и страх «пробить потолок» — вырасти выше привычного уровня.",
+        "Вам не хватает терпения и доверия к процессу. Кажется, что усилия не дают результата прямо сейчас, из-за чего опускаются руки. На самом деле всё растёт, просто невидимо.",
+        "Вам мешают иррациональные страхи: бедности, больших денег, обмана.",
+        "У вас инфантильное отношение к деньгам. Вы словно ждёте, что кто-то другой заплатит или что деньги придут сами.",
+        "Влияет родовая история. Вы можете повторять сценарии бедности, долженствования или жертвенности из вашего рода.",
+        "Вам мешает убеждение, что больше определённой суммы у вас быть не может. Вы словно поставили себе потолок.",
+        "Вам мешает самоуспокоенность: вы считаете, что и так на высоте, и останавливаетесь в развитии.",
+        "Есть проблемы с психологией денег — эмоциональное напряжение мешает вам управлять финансами.",
+        "Вам мешает тотальная честность и авторитарность. Вы требуете идеального порядка там, где он невозможен.",
+        "У вас ложное чувство неуязвимости: кажется, что с вами и с вашими деньгами ничего не случится. Также возможна гиперопора на отцовский сценарий.",
+        "Вам мешает слишком большое эго. Вы хотите всё делать по-своему, даже в ущерб финансовой выгоде.",
+        "Вы боитесь вынести своё творчество на рынок. Вам кажется, что вас не оценят, или вы будете писать в стол.",
+        "Вам мешает убеждение, что деньги ограничивают свободу. Вы можете подсознательно отказываться от богатства ради независимости.",
+        "Вам мешает конфликт между бизнесом и материнством, или между деньгами и привычкой заботиться о других в ущерб себе.",
+        "Ваш интерес быстро угасает. Вы делаете, пока интересно, и бросаете до результата.",
+        "Вы находитесь в вечном поиске — новых идей, мест, профессий — без закрепления результата.",
+        "Вы убеждены, что за своё финансовое положение надо бороться, и что деньги легко не даются. Вы живёте в хроническом напряжении.",
+        "Вы боитесь быстрых денег. Вам кажется, что они опасны.",
+        "Вы надеетесь, что что-нибудь да выгорит, но у вас нет реального плана.",
+        "Вам сложно понять, что реально, а что нет. Финансовая реальность для вас размыта.",
+        "Вам мешает упрямство и убеждение, что вы умнее всех. Вам сложно учиться у других.",
+        "Вам мешает финансовый перфекционизм — вы боитесь ошибиться в выборе, деля всё только на «полезное» и «бесполезное».",
+        "Вы зависите от партнёра в финансовых вопросах. Вы словно потеряли финансовую индивидуальность.",
+        "Вам сложно расставлять приоритеты.",
+        "Вы боитесь зарабатывать в моменте. Всё время откладываете на потом.",
+        "Вам хочется отдыхать и развлекаться вместо работы.",
+        "Вам мешает пессимизм и страх реальности. Реальность пугает вас.",
+        "Вы убеждены, что без команды невозможно продвинуться. Вы ждёте, что кто-то сделает за вас.",
+        "Вы считаете, что уже на высоте, и дальше можно не стараться.",
+        "Вы пассивны. Вам сложно найти место для новых финансовых возможностей.",
+        "Вам просто нужно время на раздумье.",
+        "Вы боитесь работать на себя. Вам кажется, что выше головы не прыгнуть и что работать на себя опасно.",
+        "Вы находитесь в режиме выживания — в хронической борьбе.",
+        "Вы слишком сосредоточены на неудачах и не видите оставшихся возможностей.",
+        "Вы убеждены, что деньги достаются только через жёсткую борьбу.",
+        "Вы словно наказываете себя. У вас есть привычка проходить мимо денег.",
+        "Ваше эго превыше реальных финансовых результатов.",
+        "У вас иждивенческая позиция: вам кажется, что мир должен вам.",
+        "Вы в вечном поиске «новых берегов» и не можете остановиться на одном месте.",
+        "Вам сложно удерживать деньги, вы готовы на многое ради них, или вам кажется, что выбирают не вас.",
+        "Вам мешает убеждение, что с большими деньгами приходит много проблем.",
+        "Вы неадекватно оцениваете свои силы и возможности.",
+        "Вы считаете, что честно не заработать. Вы склонны к обману или ожидаете обмана от других.",
+        "Вам кажется, что ваш труд никогда не оценят по достоинству.",
+        "Вам сложно подстраиваться под меняющийся темп жизни.",
+        "Вы чувствуете себя связанным по рукам и ногам. Вам кажется, что у вас нет возможности зарабатывать.",
+        "Вам кажется, что ничего никогда не меняется. Вы испытываете хроническую усталость от однообразия.",
+        "Вы считаете, что жизнь коротка и надо успеть получить удовольствие. Вы избегаете работы ради работы.",
+        "Ваше тело не принимает деньги — возможны психосоматика или проблемы со здоровьем.",
+        "Вы боитесь одиночества при высоком достатке.",
+        "Вы считаете, что только вы можете сделать это хорошо. Вам сложно делегировать.",
+        "Вы убеждены, что хорошие отношения и хорошие деньги не могут стоять рядом.",
+        "Вы чувствуете полную потерю энергии и идентичности. Вам кажется, что силы закончились.",
+        "Влияет родовая история — неотработанные семейные сценарии с деньгами."
+    ];
+
+    let currentThree = [];
+    const cards = document.querySelectorAll('.card');
+    const resultDiv = document.getElementById('resultMessage');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+
+    function getRandomThreeMeanings() {
+        const shuffled = [...allMeanings];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled.slice(0, 3);
+    }
+
+    function reshuffleDeck() {
+        currentThree = getRandomThreeMeanings();
+        resultDiv.innerHTML = '';
+        cards.forEach(card => {
+            card.style.filter = "brightness(1.2)";
+            setTimeout(() => { if(card) card.style.filter = ""; }, 150);
+        });
+    }
+
+    function showInterpretation(cardIdx) {
+        if (!currentThree.length) reshuffleDeck();
+        resultDiv.innerHTML = currentThree[cardIdx];
+        const area = document.querySelector('.result-area');
+        area.style.animation = 'none';
+        setTimeout(() => area.style.animation = 'gentleFade 0.35s ease-out', 10);
+    }
+
+    function initGame() {
+        currentThree = getRandomThreeMeanings();
+        resultDiv.innerHTML = '';
+    }
+
+    cards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+            showInterpretation(idx);
+            card.style.transform = "scale(0.97)";
+            setTimeout(() => { if(card) card.style.transform = ""; }, 120);
+        });
+    });
+
+    shuffleBtn.addEventListener('click', reshuffleDeck);
+    initGame();
+</script>
+</body>
+</html>
