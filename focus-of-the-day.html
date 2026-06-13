@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Фокус дня — Анна</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #E9E6F0 0%, #D8DCE6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', 'Raleway', 'Roboto', sans-serif;
+            padding: 20px;
+            position: relative;
+            animation: slowSky 12s ease-in-out infinite;
+        }
+
+        @keyframes slowSky {
+            0% { background: #E9E6F0; }
+            50% { background: #E0E2EC; }
+            100% { background: #E9E6F0; }
+        }
+
+        .back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(200, 190, 210, 0.7);
+            backdrop-filter: blur(4px);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: 400;
+            color: #4A5D4E;
+            transition: all 0.25s ease;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(120, 100, 130, 0.2);
+        }
+
+        .back-home:hover {
+            background: #C5BDD4;
+            transform: scale(1.05);
+            color: #2C3E2F;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(250, 248, 255, 0.85);
+            backdrop-filter: blur(1px);
+            border-radius: 56px;
+            padding: 48px 32px 56px;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(160, 140, 180, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .oracle-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: #3A4D3E;
+            margin-bottom: 32px;
+        }
+
+        .instruction {
+            font-size: 15px;
+            color: #3A4D3E;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-style: normal;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-btn {
+            background: #6B8F7A;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 550;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px auto;
+            display: block;
+            animation: softPulse 2.5s infinite;
+        }
+
+        @keyframes softPulse {
+            0% { box-shadow: 0 0 0 0 rgba(107, 143, 122, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(107, 143, 122, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(107, 143, 122, 0); }
+        }
+
+        .primary-btn:hover {
+            background: #5D7D6B;
+            transform: scale(1.02);
+        }
+
+        .primary-btn:active {
+            transform: scale(0.98);
+        }
+
+        .message-block {
+            background: rgba(240, 235, 250, 0.7);
+            border-radius: 40px;
+            padding: 32px 28px;
+            margin: 20px 0 28px;
+            border: 1px solid rgba(150, 130, 170, 0.3);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-text {
+            font-size: 18px;
+            line-height: 1.65;
+            color: #3A4D3E;
+            font-weight: 440;
+            text-align: left;
+            max-width: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .back-home-bottom {
+            margin-top: 20px;
+            display: block;
+            font-size: 13px;
+            color: #7E8F82;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home-bottom:hover {
+            color: #4A5D4E;
+            text-decoration: underline;
+        }
+
+        .consult-block {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(130, 110, 150, 0.25);
+            text-align: center;
+        }
+
+        .consult-text {
+            font-size: 14px;
+            color: #3A4D3E;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .secondary-btn-lilac {
+            background-color: #A28F9D;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 28px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn-lilac:hover {
+            background-color: #8E7A89;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 36px 20px 44px;
+            }
+            .oracle-title {
+                font-size: 26px;
+            }
+            .message-text {
+                font-size: 16px;
+            }
+            .primary-btn {
+                padding: 14px 24px;
+                font-size: 16px;
+                max-width: 280px;
+            }
+            .back-home {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+                top: 15px;
+                left: 15px;
+            }
+            .instruction {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+        }
+
+        @keyframes gentleFade {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .message-block {
+            animation: gentleFade 0.35s ease-out;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="index.html" class="back-home" title="На главную">←</a>
+
+<div class="container">
+    <div class="oracle-title">Фокус дня</div>
+
+    <div class="instruction">
+        Нажмите на кнопку внизу, когда почувствуете готовность
+    </div>
+
+    <button class="primary-btn" id="getMessageBtn">Узнать</button>
+
+    <div class="message-block" id="messageArea">
+        <div class="message-text" id="messageText"></div>
+    </div>
+
+    <a href="index.html" class="back-home-bottom">← На главную</a>
+
+    <div class="consult-block">
+        <div class="consult-text">
+            Если хотите разобрать свою ситуацию или получить прогноз — это можно сделать на личной консультации
+        </div>
+        <a href="https://t.me/Anna_prognoz" target="_blank" class="secondary-btn-lilac">Написать Анне</a>
+    </div>
+</div>
+
+<script>
+    const messages = [
+        "Время для смелых и решительных действий: будьте активны, берите инициативу в свои руки. Прекрасным решением станет направить энергию в спорт или в новый проект.",
+        "День любви к себе: слушайте свои эмоции и желания. Подумайте о способах улучшить своё материальное положение. Делайте то, что радует: сходите в салон красоты, ресторан, театр, купите что-нибудь красивое. Благоприятный день для творчества, особенно хороша работа с землёй — от посадки цветов до работы с глиной.",
+        "День располагает к общению, учёбе, коротким поездкам. Благоприятное время для новых знакомств, получения знаний, встреч с друзьями, переговоров. Хорошо работать с информацией: писать, говорить. Также можно обратить внимание на транспорт, документы или на общение с братом, сестрой, соседями.",
+        "День хорошо посвятить семье, созданию домашнего уюта и душевному комфорту. Можно провести время с близкими, особенно с детьми и мамой. Благоприятно обратить внимание на базовые потребности: еда, вода, сон. Расслабление сегодня особенно ценно. Также полезно вспомнить о своём внутреннем ребёнке — о том, что радует и успокаивает.",
+        "День благоприятен для проявления харизмы, творческих способностей и уверенности. Если намечен праздник, рабочая встреча или семейное торжество — можете оказаться на виду. Хорошо показывать свои сильные стороны — это поможет добиться результатов. Благоприятное время для самореализации и раскрытия своего потенциала.",
+        "День подходит для домашних обязанностей или рутинных дел на работе. Благоприятное время, чтобы найти себе помощника. Стоит обратить внимание на здоровье: посетить врача, записаться на лечебную процедуру. Хорошо планировать дела и подходить к любой работе скрупулёзно, уделяя внимание деталям. Рассудительность, аккуратность и наведение порядка в делах сегодня особенно уместны.",
+        "Хороший день для переговоров, новых знакомств или романтических свиданий. Благоприятное время для выхода в свет: танцы, театр, ресторан в приятной компании. Творчество в паре сегодня особенно полезно. Пригодится дипломатичность — в любых переговорах стоит искать компромиссы и учитывать интересы другой стороны.",
+        "День благоприятен для личной трансформации и работы над внутренним миром. Хорошо избавиться от токсичных установок. Полезно обратиться к энергетическим или эзотерическим практикам.",
+        "День хороший для саморазвития и получения совета от человека, которому доверяете. Если вы сами даёте советы, лучше делать это тактично, не нарушая чужих границ. Благоприятное время для поездок, расширения кругозора, посещения духовных мест и обучения.",
+        "День для профессионального роста. В случаях, когда нужен совет, полезно обратиться к старшим. На вашей стороне опыт, а приложенные усилия и труд со временем приводят к желаемому результату и достижению цели.",
+        "Сегодня возможны резкие и неожиданные события, которые могут вас удивить. Это может подтолкнуть вас к нестандартным поступкам и решениям. Хорошо выходить за рамки и проявлять изобретательность. Полезно провести время с единомышленниками, а также строить смелые планы.",
+        "Сегодня благоприятно прислушиваться к своей интуиции. Хорошо побыть в одиночестве, заняться медитацией, творчеством, послушать музыку, провести время на природе у воды. Также полезно обратиться к психологу или духовному наставнику.",
+        "Сегодня желания легче переходят в действия. Хорошо проявить смелость, активность и энтузиазм — тогда есть шанс получить желаемое. Состояние увлечённости позволит насладиться не только результатом, но и самим процессом.",
+        "День не для активных действий. Он больше подходит для внутренней психологической работы. Полезно повспоминать прошлое, помечтать о будущем. Благоприятно отдохнуть и восстановить силы. Можно провести время на природе или заняться плаванием.",
+        "День обещает гармонию: события могут совпадать с потребностями. Хорошо избегать крайностей, соблюдая баланс между логикой и чувствами. Также полезно совмещать приятное с полезным. Благоприятно встретиться с подругой, уделить время процедурам красоты.",
+        "Сегодня возможны противоречивые желания и ситуации, которые поставят вас перед выбором. Семья или работа, забота о других или собственные желания. Хорошо расставлять приоритеты и соблюдать баланс, где это возможно. Полезно понимать, что для вас важнее всего на данный момент.",
+        "Сегодня ожидается прилив энергии и творческих сил для достижения целей, можно получить желаемое. Благоприятное время, чтобы показать себя, вы можете оказаться в центре внимания. Яркость и уверенность сегодня особенно уместны.",
+        "День благоприятен для систематизации знаний, чтобы подумать о заработке на их основе. Подходящее время для работы с документами и финансами. Если предстоят траты, то желательно, чтобы они были на что-то полезное и практичное.",
+        "День подходит для инвестиций в знания или обращения к эксперту — есть вероятность, что затраты окупятся. У тех, кто связан с обучением, могут появиться идеи по монетизации знаний. Благоприятно посетить храм или заняться благотворительностью.",
+        "Сегодня день, когда хорошо проявлять благодарность, помогать нуждающимся, ценить то, что имеете, и получать удовольствие от настоящего. И не забывать о тех, кто помогал и помогает вам. Забота об окружающих и бескорыстие сегодня особенно уместны.",
+        "Хороший день для воплощения своих идей и мечтаний. Благоприятно делать что-то красивое и душевное. Полезно заняться садом или рукоделием. Работа на будущее сегодня особенно ценна.",
+        "Сегодня возможно важное сообщение или знак. Хорошо оставаться открытым к коммуникации. Благоприятен разговор с близким человеком, другом или психологом. Полезно прислушиваться к своему внутреннему состоянию и разбираться в своих чувствах."
+    ];
+
+    function getRandomMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    const getMessageBtn = document.getElementById('getMessageBtn');
+    const messageTextDiv = document.getElementById('messageText');
+    const messageBlock = document.getElementById('messageArea');
+
+    function showNewMessage() {
+        const newMessage = getRandomMessage();
+        messageBlock.style.animation = 'none';
+        messageTextDiv.style.opacity = '0.7';
+        setTimeout(() => {
+            messageTextDiv.innerText = newMessage;
+            messageTextDiv.style.opacity = '1';
+            messageBlock.style.animation = 'gentleFade 0.35s ease-out';
+        }, 80);
+    }
+
+    getMessageBtn.addEventListener('click', showNewMessage);
+</script>
+
+</body>
+</html>
